@@ -5,7 +5,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="lmu.pinnwand" 
+      i18n:domain="lmu.contenttypes.pinnwand" 
       tal:define="omit view/omit"
       tal:omit-tag="omit" >
 
@@ -53,7 +53,7 @@
       <div class="columns small-8">
         <h2 class="header-category">
           <a tal:attributes="href context/absolute_url;">
-          <tal:title tal:condition="view/author" i18n:translate="" >Meine Pinnwand-Einträge - </tal:title>
+          <tal:title tal:condition="view/author" i18n:translate="" >Meine Pinnwand-Eintraege - </tal:title>
           <span tal:replace="context/Title">Title</span>
           <small tal:content="context/description" tal:condition="context/description">Subtitle</small>
           </a>

@@ -81,7 +81,7 @@
              class="button link-overlay small"
              title="Edit Pinnwand Entry" 
              i18n:translate="" >Edit pinnwand Entry</a> 
-          <a tal:attributes="href string:${context/absolute_url}/delete" 
+          <a tal:attributes="href string:${context/absolute_url}/delete_confirmation" 
              class="button link-overlay small"
              title="Delete Pinnwand Entry" 
              i18n:translate="" >Delete pinnwand Entry</a> 
