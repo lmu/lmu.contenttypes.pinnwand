@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="lmu.contenttypes.pinnwand">
+
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <browser:page
+        name="listing_view"
+        for="lmu.contenttypes.pinnwand.interfaces.IPinnwandFolder"
+        permission="zope2.View"
+        class=".views.ListingView"
+        />
+
+    <browser:page
+        name="frontpage_view.include"
+        for="lmu.contenttypes.pinnwand.interfaces.IPinnwandFolder"
+        permission="zope2.View"
+        class=".views.FrontPageIncludeView"
+        />
+
+    <browser:page
+        name="entry_view"
+        for="lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry"
+        permission="zope2.View"
+        class=".views.EntryView"
+        />
+
+    <browser:page
+        name="report_innwand_entry"
+        for="lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry"
+        permission="zope2.View"
+        class="..content.PinnwandReportForm"
+        />
+
+</configure>

@@ -1,5 +1,5 @@
-lmu.contenttype.blog
-====================
+lmu.contenttype.pinnwand
+========================
 
 
 Introduction

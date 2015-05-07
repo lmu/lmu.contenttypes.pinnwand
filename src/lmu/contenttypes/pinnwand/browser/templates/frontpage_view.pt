@@ -1,0 +1,141 @@
+<tal:doctype xmlns:tal="http://xml.zope.org/namespaces/tal" tal:define="omit view/omit" tal:omit-tag="omit" >
+<!DOCTYPE html >
+</tal:doctype>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="lmu.blog" 
+      tal:define="omit view/omit"
+      tal:omit-tag="omit" >
+
+<head tal:condition="not:omit">
+  <title tal:content="context/Title"></title>
+
+  <link rel="stylesheet" type="text/css" href="++resource++collective.js.foundation/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="++resource++collective.js.foundation/css/foundation.min.css" />
+
+  <link rel="stylesheet" href="++theme++lmu.theme.intranet/static/foundation/stylesheets/app.css" />
+  <link rel="stylesheet" href="++theme++lmu.theme.intranet/static/main.css" />
+
+  <script type="text/javascript" src="++resource++plone.app.jquery.js" ></script>
+  <script type="text/javascript" src="++resource++collective.js.foundation/js/foundation.min.js" ></script>
+
+</head>
+
+<body tal:omit-tag="omit" class="blog-frontpage template-blog_folder-frontpage_view" >
+
+  <section id="blog-section" class="helper-margin-top-xl"
+           tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                       navigation_root_url nocall:context/@@plone/navigationRootUrl;
+                       isAnon context/@@plone_portal_state/anonymous;
+                       normalizeString nocall: context/plone_utils/normalizeString;
+                       toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                       site_properties context/portal_properties/site_properties;
+                       use_view_action site_properties/typesUseViewActionInListings|python:();
+                       show_about python:not isAnon or site_properties.allowAnonymousViewAbout;
+                       navigation_root_url context/@@plone_portal_state/navigation_root_url;
+                       pas_member context/@@pas_member;" >
+
+<header id="blog-header" class="row overview-header helper-margin-top-xl">
+  <div class="columns small-12 large-10 large-centered">
+    <div class="row">
+      <div class="columns small-8">
+        <h2 class="header-category">
+          <a tal:attributes="href context/absolute_url;">
+          <tal:title tal:condition="view/author" i18n:translate="" >Meine Blogbeiträge - </tal:title>
+          <span tal:replace="context/Title">Title</span>
+          <small tal:content="context/description" tal:condition="context/description">Subtitle</small>
+          </a>
+        </h2>
+      </div>
+      <div class="columns small-4">
+        <a class="more"
+           tal:attributes="href context/absolute_url;" 
+           i18n:translate="">Zum Blog</a>
+      </div>
+    </div>
+  </div>
+</header>
+<div id="blog-main" class="row overview-light" >
+  <div class="columns small-12 large-10 large-centered overview-column" >
+    <div class="row helper-margin-bottom-l" >
+      <div class="columns large-12 helper-margin-top-l blog" >
+        <tal:block tal:repeat="entry view/entries">
+        <tal:entry tal:define="item entry/getObject;
+                               item_creator entry/Creator;
+                               item_type entry/portal_type;
+                               item_modified entry/ModificationDate;
+                               item_url item/getURL|item/absolute_url;">
+        <article class="blog-entry blog-preview clearfix" 
+                 tal:define="text python:view.strip_text(item);
+                             imageTile python: 'imageTileItem' if item.image else '';
+                             sklass string:columns small-12 large-10 large-centered ${imageTile} blog-entry;
+                             islast repeat/entry/end;
+                             last python: 'lastTileItem' if islast else '';
+                             rclass string: tileItem ${last} visualIEFloatFix"
+                 >
+          <div class="blog-preview-counter" >
+            <a tal:attributes="href python:str(item.absolute_url())+'#commenting';
+                               title string:'Jump to Comments';"
+                tal:content="item/getDiscussionCount"
+                i18n:translate="">Anzahl</a>
+          </div>
+
+          <figure tal:define="scales item/@@images;"
+                  tal:condition="item/image" 
+                  class="blog-lead-image left helper-margin-right-m helper-margin-bottom-m small-3" >
+            <a href="#"
+               tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url">
+               <picture>
+                <source media="(min-width: 64em)" tal:define="scaled_image python: scales.scale('image', scale='xlarge');" tal:attributes="srcset scaled_image/url;"/>
+                <source media="(min-width: 52em)" tal:define="scaled_image python: scales.scale('image', scale='large');" tal:attributes="srcset scaled_image/url;"/>
+                <source media="(min-width: 42em)" tal:define="scaled_image python: scales.scale('image', scale='preview');" tal:attributes="src scaled_image/url;" />
+                <source media="(min-width: 36em)" tal:define="scaled_image python: scales.scale('image', scale='mini');" tal:attributes="src scaled_image/url;" />
+                <source media="(min-width: 24em)" tal:define="scaled_image python: scales.scale('image', scale='thumb');" tal:attributes="src scaled_image/url;" />
+                <img tal:replace="structure python: scales.tag('image', scale='preview', alt=item.image_caption)" />
+              </picture>
+              <figcaption tal:content="item/image_caption" tal:condition="item/image_caption">Caption</figcaption>
+            </a>
+          </figure>
+          <hgroup class="helper-margin-bottom-m">
+            <h3>
+              <a tal:attributes="href item/absolute_url; 
+                                 title item/title;"
+                 tal:content="item/title">Blog Entry Title</a>
+            </h3>
+            <div class="tileDocumentByLine documentByLine helper-font-serif helper-font-light" 
+                 tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
+                 tal:define="author python:pas_member.info(item_creator);">
+              <a href="#"
+                 tal:attributes="href string:${navigation_root_url}/author/${item_creator}"
+                 tal:content="author/name_or_id"
+                 tal:omit-tag="not:author">
+                Bob Dobalina
+              </a> 
+              <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
+            </div>
+          </hgroup>
+          <p tal:content="text">Blog Entry Text</p>
+        </article>
+        </tal:entry>
+        </tal:block>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="blog-footer" class="row overview-light">
+  <div class="columns  small-12 large-10 large-centered">
+    <a class="button link-overlay small-12"
+       tal:define="add_url string:${context/absolute_url}/++add++Blog Entry;"
+       tal:attributes="href add_url;"
+       i18n:translate="">
+      Jetzt einen Blog-Beitrag verfassen
+    </a>
+  </div>
+</footer>
+
+</section>
+</body>
+</html>

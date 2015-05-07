@@ -8,4 +8,6 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object meta_type="Dexterity FTI" name="Pinnwand Folder" />
+  <object meta_type="Dexterity FTI" name="Pinnwand Entry" />
 </object>
