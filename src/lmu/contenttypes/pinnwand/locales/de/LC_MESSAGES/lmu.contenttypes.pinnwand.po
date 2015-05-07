@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./browser/templates/entry_view.pt:84
+msgid "Delete pinnwand Entry"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:79
+msgid "Edit pinnwand Entry"
+msgstr ""
+
+#: ./browser/templates/frontpage_view.pt:136
+msgid "Einen Pinnwand-Eintrag verfassen"
+msgstr ""
+
+#: ./profiles/default/types/Pinnwand_Folder.xml
+msgid "Folder for Pinnwand Entries with special views and restrictions"
+msgstr ""
+
+#: ./browser/templates/listing_view.pt:19
+msgid "Jetzt einen Pinnwand-Beitrag verfassen"
+msgstr ""
+
+#: ./browser/templates/frontpage_view.pt:56
+msgid "Meine Pinnwand-Eintraege -"
+msgstr ""
+
+#: ./interfaces.py:41
+msgid "Name of Reporter"
+msgstr ""
+
+#: ./profiles/default/types/Pinnwand_Entry.xml
+msgid "Pinnwand Entry"
+msgstr ""
+
+#: ./profiles/default/types/Pinnwand_Entry.xml
+msgid "Pinnwand Entry with folder support for files and images"
+msgstr ""
+
+#: ./profiles/default/types/Pinnwand_Folder.xml
+msgid "Pinnwand Folder"
+msgstr ""
+
+#: ./interfaces.py:53
+msgid "Please describe why you report this Pinnwand Entry"
+msgstr ""
+
+#: ./interfaces.py:52
+msgid "Report Message"
+msgstr ""
+
+#: ./content.py:60
+msgid "Report Pinnwand Entry"
+msgstr ""
+
+#: ./content.py:57
+msgid "Report a Pinnwand Entry"
+msgstr ""
+
+#: ./content.py:58
+msgid "Report a Pinnwand Entry that violates the Pinnwand rules."
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:73
+msgid "Report pinnwand Entry"
+msgstr ""
+
+#: ./interfaces.py:47
+msgid "Reported URL"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:88
+msgid "Set Private"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:93
+msgid "Sperren"
+msgstr ""
+
+#: ./content.py:72
+msgid "Thank you for your Report. E-Mail send to Webmaster."
+msgstr ""
+
+#: ./interfaces.py:48
+msgid "The Reported URL of the Pinnwand Entry."
+msgstr ""
+
+#: ./browser/templates/frontpage_view.pt:63
+msgid "Zur Pinnwand"
+msgstr ""
+
