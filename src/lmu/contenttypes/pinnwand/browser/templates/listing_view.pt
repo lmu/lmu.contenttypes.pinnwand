@@ -3,29 +3,29 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="lmu.blog">
+      i18n:domain="lmu.pinnwand">
 
 <body>
 
   <metal:content fill-slot="content">
 
-    <main id="content" class="blog">
-      <header id="blog-header" class="row">
+    <main id="content" class="pinnwand">
+      <header id="pinnwand-header" class="row">
         <div class="columns small-12 large-10 large-centered helper-margin-top-l">
           <h1>
-            <span tal:replace="context/title">Blog Titel</span> 
-            <small tal:content="context/description" tal:condition="context/description">Blog Sub-Title</small>
+            <span tal:replace="context/title">Pinnwand Titel</span> 
+            <small tal:content="context/description" tal:condition="context/description">Pinnwand Sub-Title</small>
           </h1>
           <a class="button small-12"
-             tal:define="add_url string:${context/absolute_url}/++add++Blog Entry;"
+             tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
              tal:attributes="href add_url;"
              tal:condition="view/canAdd"
              i18n:translate="">
-            Jetzt einen Blog-Beitrag verfassen
+            Jetzt einen Pinnwand-Beitrag verfassen
           </a>
         </div>
       </header>
-      <div id="blog-main" class="row">
+      <div id="pinnwand-main" class="row">
         <div class="columns small-12 large-10 large-centered " >
         <tal:block tal:repeat="entry view/entries"
                    tal:define="isAnon context/@@plone_portal_state/anonymous;
@@ -37,7 +37,7 @@
                                navigation_root_url context/@@plone_portal_state/navigation_root_url;
                                pas_member context/@@pas_member;
                               ">
-          <article class="blog-entry blog-preview tileItem visualIEFloatFix clearfix" 
+          <article class="pinnwand-entry pinnwand-preview tileItem visualIEFloatFix clearfix" 
                    tal:define="item entry/getObject;
                                item_creator entry/Creator;
                                item_type entry/portal_type;
@@ -47,19 +47,11 @@
                                text python:view.strip_text(item);
                                islast repeat/entry/end;
                                last python: 'lastTileItem' if islast else '';
-                               sklass string:row blog-entry tileItem ${last} visualIEFloatFix">
+                               sklass string:row pinnwand-entry tileItem ${last} visualIEFloatFix">
 
-            <div class="blog-preview-counter" >
-              <a class="comment-sign"
-                 tal:attributes="href python:str(item.absolute_url())+'#commenting';
-                                 title string:'Jump to Comments';"
-                 i18n:translate="">
-                <span tal:content="item/getDiscussionCount" >Anzahl</span>
-              </a>
-            </div>
             <figure tal:define="scales item/@@images;"
                     tal:condition="item/image" 
-                    class="blog-lead-image tileImage small-4 left helper-margin-right-m helper-margin-bottom-m ">
+                    class="pinnwand-lead-image tileImage small-3 left helper-margin-right-m helper-margin-bottom-m ">
               <a href="#"
                  tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url">
                 <picture>
@@ -78,11 +70,16 @@
               <h2 class="tileHeadline">
                 <a tal:attributes="href item/absolute_url; 
                                    title item/title;"
-                   tal:content="item/title">Blog Entry Title</a>
+                   tal:content="item/title">Pinnwand Entry Title</a>
               </h2>
               <div class="tileDocumentByLine documentByLine helper-font-serif" 
                    tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                    tal:define="author python:pas_member.info(item_creator);">
+
+                <span tal:content="item/pinnwand_entry_type"
+                      tal:attributes="class string:${item/pinnwand_entry_type} pinnwand_type_preview">
+                    Suche / Biete
+                </span>
                 <a href="#"
                    tal:attributes="href string:${navigation_root_url}/author/${item_creator}"
                    tal:content="author/name_or_id"
@@ -97,27 +94,21 @@
               <tal:tileBody tal:content="structure item/text/output">
                 Content Body
               </tal:tileBody>
-              <p class="visualClear">
-                <a tal:define='content string:Read Comments for "${item/title}" / Write a comment;'
-                   tal:attributes="href python:str(item.absolute_url())+'#commenting';
-                                   title content;"
-                   tal:content="content"
-                   i18n:translate="" >Rede Comments for</a>
-              </p>
+
               <div class="visualClear clearfix" ></div>
             </div>
           </article>
         </tal:block>
         </div>
       </div>
-      <footer id="blog-footer" class="row"
+      <footer id="pinnwand-footer" class="row"
               tal:condition="view/canAdd">
         <div class="columns small-12 large-10 large-centered">
           <a class="button small-12"
-             tal:define="add_url string:${context/absolute_url}/++add++Blog Entry;"
+             tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
              tal:attributes="href add_url;"
              i18n:translate="">
-            Jetzt einen Blog-Beitrag verfassen
+            Jetzt einen Pinnwand-Beitrag verfassen
           </a>
         </div>
       </footer>

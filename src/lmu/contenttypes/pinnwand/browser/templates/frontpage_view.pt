@@ -5,27 +5,37 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="lmu.blog" 
+      i18n:domain="lmu.pinnwand" 
       tal:define="omit view/omit"
       tal:omit-tag="omit" >
 
 <head tal:condition="not:omit">
   <title tal:content="context/Title"></title>
 
-  <link rel="stylesheet" type="text/css" href="++resource++collective.js.foundation/css/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="++resource++collective.js.foundation/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_regular/stylesheet.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_italic/stylesheet.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_bold/stylesheet.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_bolditalic/stylesheet.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_semibold/stylesheet.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_semibolditalic/stylesheet.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/foundation-icons/foundation-icons.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/noto-serif/noto-serif.css" type="text/css" >
+    <!-- If you are using the gem version, you need this only -->
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/css/foundation/app.css">
 
-  <link rel="stylesheet" href="++theme++lmu.theme.intranet/static/foundation/stylesheets/app.css" />
-  <link rel="stylesheet" href="++theme++lmu.theme.intranet/static/main.css" />
-
-  <script type="text/javascript" src="++resource++plone.app.jquery.js" ></script>
-  <script type="text/javascript" src="++resource++collective.js.foundation/js/foundation.min.js" ></script>
+    <script src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/modernizr.js"></script>
+    <script src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/jquery_min.js"></script>
+    <script src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/foundation_min.js"></script>
+    <script src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/foundation_equalizer.js"></script>
+    <script src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/foundation_reveal.js"></script>
+    <script src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/foundation_orbit.js"></script>
+    <script id="lmujs" src="https://cms-static.uni-muenchen.de/default/foundation-zuv/js/app.js"></script>
 
 </head>
 
-<body tal:omit-tag="omit" class="blog-frontpage template-blog_folder-frontpage_view" >
+<body tal:omit-tag="omit" class="pinnwand-frontpage template-pinnwand_folder-frontpage_view" >
 
-  <section id="blog-section" class="helper-margin-top-xl"
+  <section id="pinnwand-section" class="helper-margin-top-xl"
            tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                        navigation_root_url nocall:context/@@plone/navigationRootUrl;
                        isAnon context/@@plone_portal_state/anonymous;
@@ -37,13 +47,13 @@
                        navigation_root_url context/@@plone_portal_state/navigation_root_url;
                        pas_member context/@@pas_member;" >
 
-<header id="blog-header" class="row overview-header helper-margin-top-xl">
+<header id="pinnwand-header" class="row overview-header helper-margin-top-xl">
   <div class="columns small-12 large-10 large-centered">
     <div class="row">
       <div class="columns small-8">
         <h2 class="header-category">
           <a tal:attributes="href context/absolute_url;">
-          <tal:title tal:condition="view/author" i18n:translate="" >Meine Blogbeiträge - </tal:title>
+          <tal:title tal:condition="view/author" i18n:translate="" >Meine Pinnwand-Einträge - </tal:title>
           <span tal:replace="context/Title">Title</span>
           <small tal:content="context/description" tal:condition="context/description">Subtitle</small>
           </a>
@@ -52,39 +62,35 @@
       <div class="columns small-4">
         <a class="more"
            tal:attributes="href context/absolute_url;" 
-           i18n:translate="">Zum Blog</a>
+           i18n:translate="">Zur Pinnwand</a>
       </div>
     </div>
   </div>
 </header>
-<div id="blog-main" class="row overview-light" >
+<div id="pinnwand-main" class="row overview-light" >
   <div class="columns small-12 large-10 large-centered overview-column" >
     <div class="row helper-margin-bottom-l" >
-      <div class="columns large-12 helper-margin-top-l blog" >
         <tal:block tal:repeat="entry view/entries">
         <tal:entry tal:define="item entry/getObject;
                                item_creator entry/Creator;
                                item_type entry/portal_type;
                                item_modified entry/ModificationDate;
                                item_url item/getURL|item/absolute_url;">
-        <article class="blog-entry blog-preview clearfix" 
+        <article class="pinnwand-entry pinnwand-preview columns small-12 large-4" 
                  tal:define="text python:view.strip_text(item);
                              imageTile python: 'imageTileItem' if item.image else '';
-                             sklass string:columns small-12 large-10 large-centered ${imageTile} blog-entry;
+                             sklass string:columns small-12 large-10 large-centered ${imageTile} pinnwand-entry;
                              islast repeat/entry/end;
                              last python: 'lastTileItem' if islast else '';
                              rclass string: tileItem ${last} visualIEFloatFix"
                  >
-          <div class="blog-preview-counter" >
-            <a tal:attributes="href python:str(item.absolute_url())+'#commenting';
-                               title string:'Jump to Comments';"
-                tal:content="item/getDiscussionCount"
-                i18n:translate="">Anzahl</a>
-          </div>
-
+          <span tal:content="item/pinnwand_entry_type"
+                tal:attributes="class string:${item/pinnwand_entry_type} pinnwand_type_preview">
+              Suche / Biete
+          </span>
           <figure tal:define="scales item/@@images;"
                   tal:condition="item/image" 
-                  class="blog-lead-image left helper-margin-right-m helper-margin-bottom-m small-3" >
+                  class="pinnwand-lead-image left helper-margin-right-m helper-margin-bottom-m small-12" >
             <a href="#"
                tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url">
                <picture>
@@ -98,12 +104,14 @@
               <figcaption tal:content="item/image_caption" tal:condition="item/image_caption">Caption</figcaption>
             </a>
           </figure>
-          <hgroup class="helper-margin-bottom-m">
             <h3>
               <a tal:attributes="href item/absolute_url; 
                                  title item/title;"
-                 tal:content="item/title">Blog Entry Title</a>
+                 tal:content="item/title">Pinnwand Entry Title</a>
             </h3>
+          <p tal:content="text">Pinnwand Entry Text</p>
+          <hgroup class="helper-margin-bottom-m">
+
             <div class="tileDocumentByLine documentByLine helper-font-serif helper-font-light" 
                  tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                  tal:define="author python:pas_member.info(item_creator);">
@@ -116,22 +124,20 @@
               <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
             </div>
           </hgroup>
-          <p tal:content="text">Blog Entry Text</p>
         </article>
         </tal:entry>
         </tal:block>
-      </div>
     </div>
   </div>
 </div>
 
-<footer id="blog-footer" class="row overview-light">
+<footer id="pinnwand-footer" class="row overview-light">
   <div class="columns  small-12 large-10 large-centered">
     <a class="button link-overlay small-12"
-       tal:define="add_url string:${context/absolute_url}/++add++Blog Entry;"
+       tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
        tal:attributes="href add_url;"
        i18n:translate="">
-      Jetzt einen Blog-Beitrag verfassen
+      Einen Pinnwand-Eintrag verfassen
     </a>
   </div>
 </footer>

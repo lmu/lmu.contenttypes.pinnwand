@@ -30,19 +30,16 @@
   <main id="content" class="pinnwand">
     <div class="row">
       <article class="pinnwand columns small-12 large-10 large-centered helper-margin-top-m">
-        <div class="pinnwand-preview-counter" >
-          <a class="comment-sign"
-             tal:attributes="href python:str(context.absolute_url())+'#commenting';
-                             title string:'Jump to Comments';"
-             i18n:translate="">
-            <span tal:content="context/getDiscussionCount" >Anzahl</span>
-          </a>
-        </div>
+
         <hgroup>
           <h1 tal:content="context/title">pinnwand Entry Title</h1>
           <div class="tileDocumentByLine documentByLine helper-font-serif" 
                tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                tal:define="author python:pas_member.info(item_creator);">
+            <span tal:content="context/pinnwand_entry_type"
+                  tal:attributes="class string:${context/pinnwand_entry_type} pinnwand_type_preview">
+                Suche / Biete
+            </span>
             <a href="#"
                tal:attributes="href string:${navigation_root_url}/author/${item_creator}"
                tal:content="author/name_or_id">
@@ -80,7 +77,7 @@
              title="Report Pinnwand Entry" 
              i18n:translate="" >Report pinnwand Entry</a> 
           <a tal:attributes="href string:${context/absolute_url}/edit" 
-             tal:condition="python:False"
+             tal:condition="view/canEdit"
              class="button link-overlay small"
              title="Edit Pinnwand Entry" 
              i18n:translate="" >Edit pinnwand Entry</a> 
