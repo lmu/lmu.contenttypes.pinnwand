@@ -78,27 +78,6 @@ class ListingView(_AbstractPinnwandListingView):
         return self.template()
 
 
-class FrontPageView(_AbstractPinnwandListingView):
-
-    template = ViewPageTemplateFile('templates/frontpage_view.pt')
-
-    def update(self):
-        """
-        """
-        # Hide the editable-object border
-        request = self.request
-        request.set('disable_border', True)
-
-    def __call__(self):
-
-        omit = self.request.get('omit')
-        self.omit = str2bool(omit)
-        return self.template()
-
-    def omit(self):
-        return self.omit
-
-
 class FrontPageIncludeView(_AbstractPinnwandListingView):
 
     template = ViewPageTemplateFile('templates/frontpage_view.pt')
@@ -113,17 +92,16 @@ class FrontPageIncludeView(_AbstractPinnwandListingView):
     def __call__(self):
         omit = self.request.get('full')
         self.omit = not str2bool(omit)
+        author = self.request.get('author')
+        self.author = bool(author)
+        if 'b_size' not in self.request:
+            self.request.set('b_size', '3')
         if self.omit:
             REQUEST = self.context.REQUEST
             RESPONSE = REQUEST.RESPONSE
             RESPONSE.setHeader('Content-Type', 'text/xml;charset=utf-8')
+        #import ipdb; ipdb.set_trace()
         return self.template()
-
-    def omit(self):
-        return self.omit
-
-    def author(self):
-        return bool(self.request.get('author'))
 
 
 class EntryView(_AbstractPinnwandView):

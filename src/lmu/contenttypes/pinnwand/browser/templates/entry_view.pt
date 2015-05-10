@@ -70,31 +70,38 @@
         <div tal:replace="structure context/text/output">Content</div>
 
         <div class="document-actions">
+
           <a tal:attributes="href string:${context/absolute_url}/report_pinnwand_entry" 
              tal:condition="python:False"
              class="button link-overlay small" 
              id="report-button"
              title="Report Pinnwand Entry" 
              i18n:translate="" >Report pinnwand Entry</a> 
+
           <a tal:attributes="href string:${context/absolute_url}/edit" 
              tal:condition="view/canEdit"
              class="button link-overlay small"
              title="Edit Pinnwand Entry" 
              i18n:translate="" >Edit pinnwand Entry</a> 
+
           <a tal:attributes="href string:${context/absolute_url}/delete_confirmation" 
+             tal:condition="view/canRemove"
              class="button link-overlay small"
              title="Delete Pinnwand Entry" 
              i18n:translate="" >Delete pinnwand Entry</a> 
+
           <a tal:attributes="href string:${context/absolute_url}/report_pinnwand_entry" 
              tal:condition="python:False"
              class="button link-overlay small"
              title="Set Private" 
              i18n:translate="" >Set Private</a> 
+
           <a tal:attributes="href string:${context/absolute_url}/report_pinnwand_entry" 
-             tal:condition="view/canRemove"
+             tal:condition="view/canLock"
              class="button link-overlay small"
              title="Report Pinnwand Entry" 
              i18n:translate="" >Sperren</a> 
+
         </div>
 
         <section>
