@@ -16,89 +16,89 @@ msgstr ""
 
 #: ./browser/templates/entry_view.pt:84
 msgid "Delete pinnwand Entry"
-msgstr ""
+msgstr "Pinnwand-Eintrag löschen"
 
 #: ./browser/templates/entry_view.pt:79
 msgid "Edit pinnwand Entry"
-msgstr ""
+msgstr "Pinnwandeintrag bearbeiten"
 
 #: ./browser/templates/frontpage_view.pt:136
 msgid "Einen Pinnwand-Eintrag verfassen"
-msgstr ""
+msgstr "Einen Pinnwand-Eintrag verfassen"
 
 #: ./profiles/default/types/Pinnwand_Folder.xml
 msgid "Folder for Pinnwand Entries with special views and restrictions"
-msgstr ""
+msgstr "Ordner für Pinnwand-Einträge, mit einer speziellen Ansicht und Einschränkungen"
 
 #: ./browser/templates/listing_view.pt:19
 msgid "Jetzt einen Pinnwand-Beitrag verfassen"
-msgstr ""
+msgstr "Jetzt einen Pinnwand-Eintrag verfassen"
 
 #: ./browser/templates/frontpage_view.pt:56
 msgid "Meine Pinnwand-Eintraege -"
-msgstr ""
+msgstr "Meine Pinnwand Einträge -"
 
 #: ./interfaces.py:41
 msgid "Name of Reporter"
-msgstr ""
+msgstr "Name des Meldenden"
 
 #: ./profiles/default/types/Pinnwand_Entry.xml
 msgid "Pinnwand Entry"
-msgstr ""
+msgstr "Pinnwand Eintrag"
 
 #: ./profiles/default/types/Pinnwand_Entry.xml
 msgid "Pinnwand Entry with folder support for files and images"
-msgstr ""
+msgstr "Pinnwand Eintrag mit Unterstützung für Dateien und Bilder"
 
 #: ./profiles/default/types/Pinnwand_Folder.xml
 msgid "Pinnwand Folder"
-msgstr ""
+msgstr "Pinnwand"
 
 #: ./interfaces.py:53
 msgid "Please describe why you report this Pinnwand Entry"
-msgstr ""
+msgstr "Bitte Beschreiben Sie, warum Sie diesen Pinnwand Eintrag melden wollen."
 
 #: ./interfaces.py:52
 msgid "Report Message"
-msgstr ""
+msgstr "Meldungs Nachricht"
 
 #: ./content.py:60
 msgid "Report Pinnwand Entry"
-msgstr ""
+msgstr "Pinnwand Eintrag melden"
 
 #: ./content.py:57
 msgid "Report a Pinnwand Entry"
-msgstr ""
+msgstr "Pinnwand Eintrag melden"
 
 #: ./content.py:58
 msgid "Report a Pinnwand Entry that violates the Pinnwand rules."
-msgstr ""
+msgstr "Melden Sie einen Pinnwand Eintrag, der gegen die Pinnwand-Regeln verstößt."
 
 #: ./browser/templates/entry_view.pt:73
 msgid "Report pinnwand Entry"
-msgstr ""
+msgstr "Pinnwand Eintrag melden."
 
 #: ./interfaces.py:47
 msgid "Reported URL"
-msgstr ""
+msgstr "Gemeldetet URL"
 
 #: ./browser/templates/entry_view.pt:88
 msgid "Set Private"
-msgstr ""
+msgstr "Privat setzten"
 
 #: ./browser/templates/entry_view.pt:93
 msgid "Sperren"
-msgstr ""
+msgstr "Sperren"
 
 #: ./content.py:72
 msgid "Thank you for your Report. E-Mail send to Webmaster."
-msgstr ""
+msgstr "Vielen Dank für Ihre Meldung- E-Mail an den Webmaster gesendet"
 
 #: ./interfaces.py:48
 msgid "The Reported URL of the Pinnwand Entry."
-msgstr ""
+msgstr "Die gemeldetet URL des Pinnwand Eintrags"
 
 #: ./browser/templates/frontpage_view.pt:63
 msgid "Zur Pinnwand"
-msgstr ""
+msgstr "Zur Pinnwand"
 
