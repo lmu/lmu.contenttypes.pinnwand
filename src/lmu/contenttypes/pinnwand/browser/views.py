@@ -120,5 +120,6 @@ class EntryView(_AbstractPinnwandView):
     def canRemove(self):
         return api.user.has_permission(permissions.DeleteObjects, obj=self.context)
 
-    def canLook(self):
+    def canLock(self):
         return api.user.has_permission(permissions.ReviewPortalContent, obj=self.context)
+
