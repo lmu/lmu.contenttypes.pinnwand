@@ -11,11 +11,16 @@
   <property name="factory">lmu.contenttypes.pinnwand.content.pinnwandentry</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
-  <property name="allowed_content_types" />
-  <property name="allow_discussion">True</property>
+  <property name="allowed_content_types" >
+    <element value="Image" />
+    <element value="File" />
+  </property>
+  <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry</property>
+  <property name="schema"></property>
+  <property name="model_source"></property>
+  <property name="model_file">lmu.contenttypes.pinnwand.models:pinnwand_entry.xml</property>
   <property name="klass">lmu.contenttypes.pinnwand.content.PinnwandEntry</property>
 
   <property name="behaviors">

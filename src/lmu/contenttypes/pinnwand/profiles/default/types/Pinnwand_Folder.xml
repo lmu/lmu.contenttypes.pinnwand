@@ -18,7 +18,9 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">lmu.contenttypes.pinnwand.interfaces.IPinnwandFolder</property>
+  <property name="schema"></property>
+  <property name="model_source"></property>
+  <property name="model_file">lmu.contenttypes.pinnwand.models:pinnwand_folder.xml</property>
   <property name="klass">lmu.contenttypes.pinnwand.content.PinnwandFolder</property>
 
   <property name="behaviors">
