@@ -14,15 +14,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/entry_view.pt:84
+#: ./browser/templates/entry_view.pt:90
 msgid "Delete pinnwand Entry"
 msgstr "Pinnwand-Eintrag löschen"
 
-#: ./browser/templates/entry_view.pt:79
+#: ./browser/templates/entry_view.pt:84
 msgid "Edit pinnwand Entry"
 msgstr "Pinnwandeintrag bearbeiten"
 
-#: ./browser/templates/frontpage_view.pt:136
+#: ./browser/templates/frontpage_view.pt:140
 msgid "Einen Pinnwand-Eintrag verfassen"
 msgstr "Einen Pinnwand-Eintrag verfassen"
 
@@ -34,7 +34,7 @@ msgstr "Ordner für Pinnwand-Einträge, mit einer speziellen Ansicht und Einschr
 msgid "Jetzt einen Pinnwand-Beitrag verfassen"
 msgstr "Jetzt einen Pinnwand-Eintrag verfassen"
 
-#: ./browser/templates/frontpage_view.pt:56
+#: ./browser/templates/frontpage_view.pt:58
 msgid "Meine Pinnwand-Eintraege -"
 msgstr "Meine Pinnwand Einträge -"
 
@@ -74,7 +74,7 @@ msgstr "Pinnwand Eintrag melden"
 msgid "Report a Pinnwand Entry that violates the Pinnwand rules."
 msgstr "Melden Sie einen Pinnwand Eintrag, der gegen die Pinnwand-Regeln verstößt."
 
-#: ./browser/templates/entry_view.pt:73
+#: ./browser/templates/entry_view.pt:77
 msgid "Report pinnwand Entry"
 msgstr "Pinnwand Eintrag melden."
 
@@ -82,11 +82,11 @@ msgstr "Pinnwand Eintrag melden."
 msgid "Reported URL"
 msgstr "Gemeldetet URL"
 
-#: ./browser/templates/entry_view.pt:88
+#: ./browser/templates/entry_view.pt:96
 msgid "Set Private"
 msgstr "Privat setzten"
 
-#: ./browser/templates/entry_view.pt:93
+#: ./browser/templates/entry_view.pt:102
 msgid "Sperren"
 msgstr "Sperren"
 
@@ -98,7 +98,7 @@ msgstr "Vielen Dank für Ihre Meldung- E-Mail an den Webmaster gesendet"
 msgid "The Reported URL of the Pinnwand Entry."
 msgstr "Die gemeldetet URL des Pinnwand Eintrags"
 
-#: ./browser/templates/frontpage_view.pt:63
+#: ./browser/templates/frontpage_view.pt:65
 msgid "Zur Pinnwand"
 msgstr "Zur Pinnwand"
 

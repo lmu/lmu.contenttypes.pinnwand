@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-05-07 22:21+0000\n"
+"POT-Creation-Date: 2015-06-03 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: manual\n"
 
-#: ./browser/templates/entry_view.pt:84
+#: ./browser/templates/entry_view.pt:90
 msgid "Delete pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:79
+#: ./browser/templates/entry_view.pt:84
 msgid "Edit pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:136
+#: ./browser/templates/frontpage_view.pt:140
 msgid "Einen Pinnwand-Eintrag verfassen"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Jetzt einen Pinnwand-Beitrag verfassen"
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:56
+#: ./browser/templates/frontpage_view.pt:58
 msgid "Meine Pinnwand-Eintraege -"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Report a Pinnwand Entry that violates the Pinnwand rules."
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:73
+#: ./browser/templates/entry_view.pt:77
 msgid "Report pinnwand Entry"
 msgstr ""
 
@@ -90,11 +90,11 @@ msgstr ""
 msgid "Reported URL"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:88
+#: ./browser/templates/entry_view.pt:96
 msgid "Set Private"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:93
+#: ./browser/templates/entry_view.pt:102
 msgid "Sperren"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "The Reported URL of the Pinnwand Entry."
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:63
+#: ./browser/templates/frontpage_view.pt:65
 msgid "Zur Pinnwand"
 msgstr ""
 
