@@ -86,10 +86,12 @@
                              last python: 'lastTileItem' if islast else '';
                              rclass string: tileItem ${last} visualIEFloatFix"
                  >
-          <span tal:content="item/pinnwand_entry_type"
-                tal:attributes="class string:${item/pinnwand_entry_type} pinnwand_type_preview">
+          <div tal:content="item/pinnwand_entry_type"
+               tal:define="category python:item.pinnwand_entry_type.lower()"
+               tal:attributes="class string:${category} pinnwand_type_preview"
+               tal:on-error="string:Suche">
               Suche / Biete
-          </span>
+          </div>
           <figure tal:define="scales item/@@images;"
                   tal:condition="item/image" 
                   class="pinnwand-lead-image left helper-margin-right-m helper-margin-bottom-m small-12" >

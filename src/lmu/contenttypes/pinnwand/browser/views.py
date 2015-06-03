@@ -122,4 +122,3 @@ class EntryView(_AbstractPinnwandView):
 
     def canLock(self):
         return api.user.has_permission(permissions.ReviewPortalContent, obj=self.context)
-

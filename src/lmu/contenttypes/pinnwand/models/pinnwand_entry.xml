@@ -6,16 +6,18 @@
   <schema>
   	<!-- field definitions -->
     <field name="title" type="zope.schema.TextLine">
-      <title>Title</title>
-      <description>Name of the Pinnwand Entry</description>
+      <title>Überschrift</title>
+      <description>Wie soll die Überschrift aussehen.</description>
       <required>True</required>
     </field>
+
     <field name="pinnwand_entry_type" type="zope.schema.Choice">
       <description/>
-      <title>Pinnwand Entry Type</title>
+      <title>Kategorie</title>
       <required>False</required>
       <source>lmu.contenttypes.pinnwand.content.pinnwand_entry_types_vocabulary</source>
     </field>
+
     <field name="text" type="plone.app.textfield.RichText">
       <title>Text</title>
       <description>Content Text</description>

@@ -67,6 +67,12 @@
             </figure>
 
             <hgroup >
+              <div tal:content="item/pinnwand_entry_type"
+                   tal:define="category python:item.pinnwand_entry_type.lower()"
+                   tal:attributes="class string:${category} pinnwand_type_preview" 
+                   tal:on-error="string:Suche">
+                Suche / Biete
+              </div>
               <h2 class="tileHeadline">
                 <a tal:attributes="href item/absolute_url; 
                                    title item/title;"
@@ -76,10 +82,6 @@
                    tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                    tal:define="author python:pas_member.info(item_creator);">
 
-                <span tal:content="item/pinnwand_entry_type"
-                      tal:attributes="class string:${item/pinnwand_entry_type} pinnwand_type_preview">
-                    Suche / Biete
-                </span>
                 <a href="#"
                    tal:attributes="href string:${navigation_root_url}/author/${item_creator}"
                    tal:content="author/name_or_id"

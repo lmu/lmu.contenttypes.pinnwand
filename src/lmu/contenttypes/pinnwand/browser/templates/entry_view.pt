@@ -34,7 +34,8 @@
         <hgroup>
           <div tal:content="context/pinnwand_entry_type"
                tal:define="category python:context.pinnwand_entry_type.lower()"
-               tal:attributes="class string:${category} pinnwand_type_preview">
+               tal:attributes="class string:${category} pinnwand_type_preview"
+               tal:on-error="string:Suche">
               Suche / Biete
           </div>
           <h1 tal:content="context/title">pinnwand Entry Title</h1>
