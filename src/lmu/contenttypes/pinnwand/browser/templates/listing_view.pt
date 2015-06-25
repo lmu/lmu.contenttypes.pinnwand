@@ -44,7 +44,7 @@
                                navigation_root_url context/@@plone_portal_state/navigation_root_url;
                                pas_member context/@@pas_member;
                               ">
-          <article class="pinnwand-entry pinnwand-preview tileItem visualIEFloatFix clearfix" 
+          <article class="pinnwand-entry pinnwand-preview tileItem visualIEFloatFix helper-border-top helper-margin-top-m helper-padding-top-m clearfix" 
                    tal:define="item entry/getObject;
                                item_creator entry/Creator;
                                item_type entry/portal_type;
@@ -73,19 +73,21 @@
               </a>
             </figure>
 
-            <hgroup >
-              <div tal:content="item/pinnwand_entry_type"
-                   tal:define="category python:item.pinnwand_entry_type.lower()"
-                   tal:attributes="class string:${category} pinnwand_type_preview" 
-                   tal:on-error="string:Suche">
-                Suche / Biete
-              </div>
-              <h2 class="tileHeadline">
+            <hgroup>
+              <div>
+                  <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
+                  <span tal:content="item/pinnwand_entry_type"
+                       tal:define="category python:item.pinnwand_entry_type.lower()"
+                       tal:attributes="class string:${category} pinnwand_type_preview helper-font-italic" 
+                       tal:on-error="string:Suche">
+                    Suche / Biete
+                  </span>
+              <h2 class="tileHeadline helper-margin-top-m">
                 <a tal:attributes="href item/absolute_url; 
                                    title item/title;"
                    tal:content="item/title">Pinnwand Entry Title</a>
               </h2>
-              <div class="tileDocumentByLine documentByLine helper-font-serif" 
+              <div class="tileDocumentByLine documentByLine helper-font-serif helper-margin-top-s" 
                    tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                    tal:define="author python:pas_member.info(item_creator);">
 
@@ -99,7 +101,7 @@
               </div>
             </hgroup>
 
-            <div class="tileBody" >
+            <div class="tileBody helper-margin-top-m">
               <tal:tileBody tal:content="structure item/text/output">
                 Content Body
               </tal:tileBody>

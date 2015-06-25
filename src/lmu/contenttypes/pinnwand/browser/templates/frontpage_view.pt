@@ -71,14 +71,14 @@
 </header>
 <div id="pinnwand-main" class="row overview-light" >
   <div class="columns small-12 large-10 large-centered overview-column" >
-    <div class="row helper-margin-bottom-l" >
+    <div class="row helper-margin-bottom-m clearfix">
         <tal:block tal:repeat="entry view/entries">
         <tal:entry tal:define="item entry/getObject;
                                item_creator entry/Creator;
                                item_type entry/portal_type;
                                item_modified entry/ModificationDate;
                                item_url item/getURL|item/absolute_url;">
-        <article class="pinnwand-entry pinnwand-preview columns small-12 large-4" 
+        <article class="pinnwand-entry pinnwand-preview columns small-12 large-4 helper-margin-bottom-m" 
                  tal:define="text python:view.strip_text(item);
                              imageTile python: 'imageTileItem' if item.image else '';
                              sklass string:columns small-12 large-10 large-centered ${imageTile} pinnwand-entry;
@@ -86,13 +86,16 @@
                              last python: 'lastTileItem' if islast else '';
                              rclass string: tileItem ${last} visualIEFloatFix"
                  >
-          <div tal:content="item/pinnwand_entry_type"
-               tal:define="category python:item.pinnwand_entry_type.lower()"
-               tal:attributes="class string:${category} pinnwand_type_preview"
-               tal:on-error="string:Suche">
-              Suche / Biete
+          <div class="helper-margin-bottom-m helper-font-italic">
+              <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
+              <span tal:content="item/pinnwand_entry_type"
+                   tal:define="category python:item.pinnwand_entry_type.lower()"
+                   tal:attributes="class string:${category} pinnwand_type_preview"
+                   tal:on-error="string:Suche">
+                  Suche / Biete
+              </span>
           </div>
-          <figure tal:define="scales item/@@images;"
+          <!--<figure tal:define="scales item/@@images;"
                   tal:condition="item/image" 
                   class="pinnwand-lead-image left helper-margin-right-m helper-margin-bottom-m small-12" >
             <a href="#"
@@ -107,7 +110,7 @@
               </picture>
               <figcaption tal:content="item/image_caption" tal:condition="item/image_caption">Caption</figcaption>
             </a>
-          </figure>
+          </figure>-->
             <h3>
               <a tal:attributes="href item/absolute_url; 
                                  title item/title;"
@@ -128,6 +131,25 @@
               <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
             </div>
           </hgroup>
+          
+          <!-- TODO: inline-Styles durch Klasse ersetzen -->
+          <figure tal:define="scales item/@@images;"
+                  tal:condition="item/image" 
+                  class="pinnwand-lead-image left helper-margin-right-m helper-margin-bottom-m small-4 large-12" style="max-height: 185px; overflow: hidden;">
+            <a href="#"
+               tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url">
+               <picture>
+                <source media="(min-width: 64em)" tal:define="scaled_image python: scales.scale('image', scale='xlarge');" tal:attributes="srcset scaled_image/url;"/>
+                <source media="(min-width: 52em)" tal:define="scaled_image python: scales.scale('image', scale='large');" tal:attributes="srcset scaled_image/url;"/>
+                <source media="(min-width: 42em)" tal:define="scaled_image python: scales.scale('image', scale='preview');" tal:attributes="src scaled_image/url;" />
+                <source media="(min-width: 36em)" tal:define="scaled_image python: scales.scale('image', scale='mini');" tal:attributes="src scaled_image/url;" />
+                <source media="(min-width: 24em)" tal:define="scaled_image python: scales.scale('image', scale='thumb');" tal:attributes="src scaled_image/url;" />
+                <img tal:replace="structure python: scales.tag('image', scale='preview', alt=item.image_caption)" />
+              </picture>
+              <figcaption tal:content="item/image_caption" tal:condition="item/image_caption">Caption</figcaption>
+            </a>
+          </figure>
+          
         </article>
         </tal:entry>
         </tal:block>

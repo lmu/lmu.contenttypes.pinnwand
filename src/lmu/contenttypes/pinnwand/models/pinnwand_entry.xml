@@ -7,7 +7,7 @@
   	<!-- field definitions -->
     <field name="title" type="zope.schema.TextLine">
       <title>Überschrift</title>
-      <description>Wie soll die Überschrift aussehen.</description>
+      <!--<description>Wie soll die Überschrift aussehen.</description>-->
       <required>True</required>
     </field>
 

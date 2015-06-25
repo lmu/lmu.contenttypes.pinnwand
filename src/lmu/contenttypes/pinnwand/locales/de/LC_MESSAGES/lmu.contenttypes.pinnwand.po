@@ -88,7 +88,7 @@ msgstr "Privat setzten"
 
 #: ./browser/templates/listing_view.pt:15
 msgid "Show Pinnwand Rules"
-msgstr "Zeige Pinnwand-Regeln / Tips und Tricks"
+msgstr "Tipps & Tricks für die ZUV-Pinnwand"
 
 #: ./browser/templates/entry_view.pt:102
 msgid "Sperren"
