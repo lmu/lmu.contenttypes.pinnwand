@@ -1,27 +1,42 @@
 <?xml version="1.0" ?>
 <model xmlns="http://namespaces.plone.org/supermodel/schema"
-       xmlns:form="http://namespaces.plone.org/supermodel/form" 
-       xmlns:security="http://namespaces.plone.org/supermodel/security" 
-       xmlns:marshal="http://namespaces.plone.org/supermodel/marshal">
+       xmlns:form="http://namespaces.plone.org/supermodel/form"
+       xmlns:security="http://namespaces.plone.org/supermodel/security"
+       xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
+       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+       i18n:domain="lmu.contenttypes.pinnwand">
   <schema>
   	<!-- field definitions -->
     <field name="title" type="zope.schema.TextLine">
-      <title>Überschrift</title>
-      <!--<description>Wie soll die Überschrift aussehen.</description>-->
+      <title i18n:translate="pinnwannd_entry_title_title" >Title</title>
+      <description i18n:translate="pinnwannd_entry_title_title" >Under which Title should your offer be displayed</description>
       <required>True</required>
     </field>
 
     <field name="pinnwand_entry_type" type="zope.schema.Choice">
-      <description/>
-      <title>Kategorie</title>
+      <title i18n:translate="pinnwannd_entry_title_title" >Kategorie</title>
+      <description i18n:translate="pinnwannd_entry_title_title" >To which Category does your offer belong</description>
       <required>False</required>
       <source>lmu.contenttypes.pinnwand.content.pinnwand_entry_types_vocabulary</source>
     </field>
 
     <field name="text" type="plone.app.textfield.RichText">
-      <title>Text</title>
-      <description>Content Text</description>
+      <title i18n:translate="pinnwannd_entry_title_title" >Text</title>
+      <description i18n:translate="pinnwannd_entry_title_title" >Content Text</description>
       <required>True</required>
+    </field>
+
+    <field name="pinnwand_entry_vendor" type="zope.schema.TextLine">
+      <title i18n:translate="pinnwannd_entry_title_title" >Vendor</title>
+      <description i18n:translate="pinnwannd_entry_title_title" >If you would like to offer this for someone else</description>
+      <required>False</required>
+      <!--defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorDefaultFactory</defaultFactory-->
+    </field>
+
+    <field name="pinnwand_entry_vendor_email" type="zope.schema.TextLine">
+      <title i18n:translate="pinnwannd_entry_title_title" >Vendor E-Mail</title>
+      <description i18n:translate="pinnwannd_entry_title_title" >Please add your E-Mail Adress under which you want to be contacted for this offer</description>
+      <required>False</required>
     </field>
   </schema>
 </model>

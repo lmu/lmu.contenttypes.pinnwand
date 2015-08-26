@@ -6,6 +6,8 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone import api
 from plone.app.textfield.interfaces import ITransformer
+from zope.interface import provider
+from zope.schema.interfaces import IContextAwareDefaultFactory
 
 from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
 
@@ -122,3 +124,10 @@ class EntryView(_AbstractPinnwandView):
 
     def canLock(self):
         return api.user.has_permission(permissions.ReviewPortalContent, obj=self.context)
+
+
+@provider(IContextAwareDefaultFactory)
+def vendorDefaultFactory(context):
+    user = api.user.get_current()
+    #import ipdb; ipdb.set_trace()
+    return user.getUserName()
