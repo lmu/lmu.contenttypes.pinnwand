@@ -30,13 +30,14 @@
       <title i18n:translate="pinnwannd_entry_title_title" >Vendor</title>
       <description i18n:translate="pinnwannd_entry_title_title" >If you would like to offer this for someone else</description>
       <required>False</required>
-      <!--defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorDefaultFactory</defaultFactory-->
+      <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorDefaultFactory</defaultFactory>
     </field>
 
     <field name="pinnwand_entry_vendor_email" type="zope.schema.TextLine">
       <title i18n:translate="pinnwannd_entry_title_title" >Vendor E-Mail</title>
       <description i18n:translate="pinnwannd_entry_title_title" >Please add your E-Mail Adress under which you want to be contacted for this offer</description>
       <required>False</required>
+      <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
     </field>
   </schema>
 </model>

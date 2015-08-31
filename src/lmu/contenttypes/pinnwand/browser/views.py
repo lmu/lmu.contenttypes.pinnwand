@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from Products.CMFCore import permissions
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -130,4 +131,11 @@ class EntryView(_AbstractPinnwandView):
 def vendorDefaultFactory(context):
     user = api.user.get_current()
     #import ipdb; ipdb.set_trace()
-    return user.getUserName()
+    return safe_unicode(user.getUserName())
+
+
+@provider(IContextAwareDefaultFactory)
+def vendorEmailDefaultFactory(context):
+    user = api.user.get_current()
+    #import ipdb; ipdb.set_trace()
+    return safe_unicode(user.getUserName())
