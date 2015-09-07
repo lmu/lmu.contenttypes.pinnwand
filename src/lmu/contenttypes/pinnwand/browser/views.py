@@ -130,12 +130,10 @@ class EntryView(_AbstractPinnwandView):
 @provider(IContextAwareDefaultFactory)
 def vendorDefaultFactory(context):
     user = api.user.get_current()
-    #import ipdb; ipdb.set_trace()
-    return safe_unicode(user.getUserName())
+    return unicode(user.fullname)
 
 
 @provider(IContextAwareDefaultFactory)
 def vendorEmailDefaultFactory(context):
     user = api.user.get_current()
-    #import ipdb; ipdb.set_trace()
-    return safe_unicode(user.getUserName())
+    return unicode(user.email)

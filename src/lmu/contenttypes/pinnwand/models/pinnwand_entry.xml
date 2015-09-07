@@ -13,7 +13,7 @@
       <required>True</required>
     </field>
 
-    <field name="pinnwand_entry_type" type="zope.schema.Choice">
+    <field name="pinnwand_entry_type" type="zope.schema.Choice" form:widget="z3c.form.browser.radio.RadioFieldWidget">
       <title i18n:translate="pinnwannd_entry_title_title" >Kategorie</title>
       <description i18n:translate="pinnwannd_entry_title_title" >To which Category does your offer belong</description>
       <required>False</required>
