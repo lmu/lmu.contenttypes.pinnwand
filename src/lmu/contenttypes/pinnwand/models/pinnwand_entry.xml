@@ -8,34 +8,34 @@
   <schema>
   	<!-- field definitions -->
     <field name="title" type="zope.schema.TextLine">
-      <title i18n:translate="pinnwannd_entry_title_title" >Title</title>
-      <description i18n:translate="pinnwannd_entry_title_title" >Under which Title should your offer be displayed</description>
+      <title i18n:translate="pinnwannd_entry_title_title" >Titel</title>
+      <!--description i18n:translate="pinnwannd_entry_title_title" >Under which Title should your offer be displayed</description-->
       <required>True</required>
     </field>
 
     <field name="pinnwand_entry_type" type="zope.schema.Choice" form:widget="z3c.form.browser.radio.RadioFieldWidget">
       <title i18n:translate="pinnwannd_entry_title_title" >Kategorie</title>
-      <description i18n:translate="pinnwannd_entry_title_title" >To which Category does your offer belong</description>
+      <!--description i18n:translate="pinnwannd_entry_title_title" >To which Category does your offer belong</description-->
       <required>False</required>
       <source>lmu.contenttypes.pinnwand.content.pinnwand_entry_types_vocabulary</source>
     </field>
 
     <field name="text" type="plone.app.textfield.RichText">
       <title i18n:translate="pinnwannd_entry_title_title" >Text</title>
-      <description i18n:translate="pinnwannd_entry_title_title" >Content Text</description>
+      <!--description i18n:translate="pinnwannd_entry_title_title" >Content Text</description-->
       <required>True</required>
     </field>
 
     <field name="pinnwand_entry_vendor" type="zope.schema.TextLine">
-      <title i18n:translate="pinnwannd_entry_title_title" >Vendor</title>
-      <description i18n:translate="pinnwannd_entry_title_title" >If you would like to offer this for someone else</description>
+      <title i18n:translate="pinnwannd_entry_title_title" >Verkäufer/in</title>
+      <!--description i18n:translate="pinnwannd_entry_title_title" >If you would like to offer this for someone else</description-->
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorDefaultFactory</defaultFactory>
     </field>
 
     <field name="pinnwand_entry_vendor_email" type="zope.schema.TextLine">
-      <title i18n:translate="pinnwannd_entry_title_title" >Vendor E-Mail</title>
-      <description i18n:translate="pinnwannd_entry_title_title" >Please add your E-Mail Adress under which you want to be contacted for this offer</description>
+      <title i18n:translate="pinnwannd_entry_title_title" >E-Mailadresse</title>
+      <description i18n:translate="pinnwannd_entry_title_title" >Bitte geben Sie eine E-Mailadresse ein, unter der Sie die Interessentinnen und Interessenten erreichen können.</description>
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
     </field>
