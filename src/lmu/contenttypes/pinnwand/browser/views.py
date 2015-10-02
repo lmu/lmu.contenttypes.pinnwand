@@ -1,49 +1,23 @@
 # -*- coding: utf-8 -*-
 
 from Products.CMFCore import permissions
-from Products.CMFPlone.utils import safe_unicode
-from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone import api
-from plone.app.textfield.interfaces import ITransformer
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
 from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
+from lmu.policy.base.browser import _AbstractLMUBaseContentView
+from lmu.policy.base.browser import _FrontPageIncludeMixin
+from lmu.policy.base.browser import _EntryViewMixin
 
 
 def str2bool(v):
     return v is not None and v.lower() in ['true', '1']
 
 
-class _AbstractPinnwandView(BrowserView):
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-    def get_memberdata(self, item):
-        pmt = api.portal.get_tool(name='portal_membership')
-        member_id = item.Creator()
-        member = pmt.getMemberById(member_id)
-        return member
-
-    def strip_text(self, item, length=500):
-        transformer = ITransformer(item)
-        transformedValue = transformer(item.text, 'text/plain')
-        striped_length = len(transformedValue)
-        if striped_length > length:
-            striped_length = transformedValue.rfind(' ', 0, length)
-            transformedValue = transformedValue[:striped_length] + '...'
-        return transformedValue
-
-    def _check_permission(self, permission, item):
-        pmt = api.portal.get_tool(name='portal_membership')
-        return pmt.checkPermission(permission, item)
-
-
-class _AbstractPinnwandListingView(_AbstractPinnwandView):
+class _AbstractPinnwandListingView(_AbstractLMUBaseContentView):
 
     def entries(self):
         entries = []
@@ -81,50 +55,17 @@ class ListingView(_AbstractPinnwandListingView):
         return self.template()
 
 
-class FrontPageIncludeView(_AbstractPinnwandListingView):
+class FrontPageIncludeView(_AbstractPinnwandListingView, _FrontPageIncludeMixin):
 
     template = ViewPageTemplateFile('templates/frontpage_view.pt')
 
-    def update(self):
-        """
-        """
-        # Hide the editable-object border
-        request = self.request
-        request.set('disable_border', True)
 
-    def __call__(self):
-        omit = self.request.get('full')
-        self.omit = not str2bool(omit)
-        author = self.request.get('author')
-        self.author = bool(author)
-        if 'b_size' not in self.request:
-            self.request.set('b_size', '3')
-        if self.omit:
-            REQUEST = self.context.REQUEST
-            RESPONSE = REQUEST.RESPONSE
-            RESPONSE.setHeader('Content-Type', 'text/xml;charset=utf-8')
-        #import ipdb; ipdb.set_trace()
-        return self.template()
-
-
-class EntryView(_AbstractPinnwandView):
+class EntryView(_AbstractLMUBaseContentView, _EntryViewMixin):
 
     template = ViewPageTemplateFile('templates/entry_view.pt')
 
     def __call__(self):
         return self.template()
-
-    def canSeeHistory(self):
-        return True
-
-    def canEdit(self):
-        return api.user.has_permission(permissions.ModifyPortalContent, obj=self.context)
-
-    def canRemove(self):
-        return api.user.has_permission(permissions.DeleteObjects, obj=self.context)
-
-    def canLock(self):
-        return api.user.has_permission(permissions.ReviewPortalContent, obj=self.context)
 
 
 @provider(IContextAwareDefaultFactory)

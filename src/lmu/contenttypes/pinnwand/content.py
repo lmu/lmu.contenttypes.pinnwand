@@ -8,7 +8,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 from plone.dexterity.content import Container
 
 #from plone.app.contenttypes.behaviors.leadimage import ILeadImage
-from plone.app.discussion.interfaces import IConversation
 from plone.directives import form
 
 from zope.interface import implements
@@ -23,6 +22,7 @@ from lmu.contenttypes.pinnwand.interfaces import IPinnwandEntry
 from lmu.contenttypes.pinnwand.interfaces import IPinnwandReportForm
 
 from lmu.contenttypes.pinnwand import MessageFactory as _
+from lmu.policy.base.content import LMUBaseContent
 
 
 pinnwand_entry_types_vocabulary = SimpleVocabulary([
@@ -35,17 +35,8 @@ class PinnwandFolder(Container):
     implements(IPinnwandFolder, ISyndicatable)
 
 
-class PinnwandEntry(Container):
+class PinnwandEntry(LMUBaseContent):
     implements(IPinnwandEntry)
-
-    def getDiscussionCount(self):
-        try:
-            # plone.app.discussion.conversation object
-            # fetched via IConversation adapter
-            conversation = IConversation(self)
-        except:
-            return 0
-        return conversation.total_comments
 
 
 class PinnwandReportForm(form.SchemaForm):
