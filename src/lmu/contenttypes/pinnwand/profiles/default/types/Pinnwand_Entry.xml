@@ -24,11 +24,11 @@
   <property name="klass">lmu.contenttypes.pinnwand.content.PinnwandEntry</property>
 
   <property name="behaviors">
-     <element value="plone.app.content.interfaces.INameFromTitle" />
-     <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
-     <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImage" />
-     <element value="plone.app.dexterity.behaviors.nextprevious.INextPreviousEnabled" />
-     <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
+    <element value="plone.app.content.interfaces.INameFromTitle" />
+    <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+    <element value="plone.app.dexterity.behaviors.metadata.IPublication" />
+    <element value="plone.app.dexterity.behaviors.nextprevious.INextPreviousEnabled" />
+    <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
    </property>
 
   <!-- View information -->

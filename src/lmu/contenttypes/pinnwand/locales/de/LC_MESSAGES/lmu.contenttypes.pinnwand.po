@@ -14,15 +14,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/entry_view.pt:90
+#: ./browser/templates/entry_view.pt:85
 msgid "Delete pinnwand Entry"
 msgstr "Pinnwand-Eintrag löschen"
 
-#: ./browser/templates/entry_view.pt:84
+#: ./browser/templates/entry_view.pt:79
 msgid "Edit pinnwand Entry"
 msgstr "Pinnwand-Eintrag bearbeiten"
 
-#: ./browser/templates/frontpage_view.pt:140
+#: ./browser/templates/frontpage_view.pt:162
 msgid "Einen Pinnwand-Eintrag verfassen"
 msgstr "Einen Pinnwand-Eintrag verfassen"
 
@@ -74,7 +74,7 @@ msgstr "Pinnwand-Eintrag melden"
 msgid "Report a Pinnwand Entry that violates the Pinnwand rules."
 msgstr "Melden Sie einen Pinnwand-Eintrag, der gegen die Pinnwand-Regeln verstößt."
 
-#: ./browser/templates/entry_view.pt:77
+#: ./browser/templates/entry_view.pt:72
 msgid "Report pinnwand Entry"
 msgstr "Pinnwand-Eintrag melden."
 
@@ -82,7 +82,7 @@ msgstr "Pinnwand-Eintrag melden."
 msgid "Reported URL"
 msgstr "Gemeldetet URL"
 
-#: ./browser/templates/entry_view.pt:96
+#: ./browser/templates/entry_view.pt:91
 msgid "Set Private"
 msgstr "Privat setzten"
 
@@ -90,7 +90,7 @@ msgstr "Privat setzten"
 msgid "Show Pinnwand Rules"
 msgstr "Tipps & Tricks für die ZUV-Pinnwand"
 
-#: ./browser/templates/entry_view.pt:102
+#: ./browser/templates/entry_view.pt:97
 msgid "Sperren"
 msgstr "Sperren"
 
@@ -105,4 +105,44 @@ msgstr "Die gemeldetet URL des Pinnwand-Eintrags"
 #: ./browser/templates/frontpage_view.pt:65
 msgid "Zur Pinnwand"
 msgstr "Zur Pinnwand"
+
+#. Default: "Text"
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_text_title"
+msgstr "Text"
+
+#. Default: "Titel"
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_title_title"
+msgstr "Titel"
+
+#. Default: "Kategorie"
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_type_title"
+msgstr "Kategorie"
+
+#. Default: "Verkäufer/in"
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_vendor_title"
+msgstr "Verkäufer/in"
+
+#. Default: "Hier können Sie weitere Informationen zur Kontakaufnahme angeben."
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_vendorcontactinfotext_description"
+msgstr "Hier können Sie weitere Informationen zur Kontakaufnahme angeben."
+
+#. Default: "Contact Information"
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_vendorcontactinfotext_title"
+msgstr "Kontakt Informationen"
+
+#. Default: "Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können."
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_vendoremail_description"
+msgstr "Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können."
+
+#. Default: "E-Mailadresse"
+#: ./models/pinnwand_entry.xml
+msgid "pinnwannd_entry_vendoremail_title"
+msgstr "E-Mailadresse"
 
