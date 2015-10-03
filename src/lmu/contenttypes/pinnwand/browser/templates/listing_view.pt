@@ -26,7 +26,7 @@
           <a class="button small-12"
              tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
              tal:attributes="href add_url;"
-             tal:condition="view/canAdd"
+             tal:condition="view/can_add"
              i18n:translate="">
             Jetzt einen Pinnwand-Beitrag verfassen
           </a>
@@ -113,7 +113,7 @@
         </div>
       </div>
       <footer id="pinnwand-footer" class="row"
-              tal:condition="view/canAdd">
+              tal:condition="view/can_add">
         <div class="columns small-12 large-10 large-centered">
           <a class="button small-12"
              tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"

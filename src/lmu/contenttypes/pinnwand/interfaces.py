@@ -8,21 +8,23 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.theme.interfaces import IDefaultPloneLayer
 
 from zope import schema
+from zope.interface import Interface
 
 #from zope.interface import Attribute
 #from zope.interface import Interface
 
+from lmu.policy.base.interfaces import ILMUContent
 from lmu.contenttypes.pinnwand import MessageFactory as _
 
 
-class IPinnwandFolder(form.Schema, IImageScaleTraversable):
+class IPinnwandFolder(Interface, IImageScaleTraversable):
     """
     Folder for Pinnwand Entries with special views and restrictions
     """
     form.model("models/pinnwand_folder.xml")
 
 
-class IPinnwandEntry(form.Schema, IImageScaleTraversable):
+class IPinnwandEntry(ILMUContent, IImageScaleTraversable):
     """
     Pinnwand Entry with folder support for files and images
     """
