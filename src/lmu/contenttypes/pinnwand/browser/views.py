@@ -8,11 +8,11 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 
 from lmu.contenttypes.blog import MESSAGE_FACTORY as _  # XXX move translations
 from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
-from lmu.policy.base.browser import _AbstractLMUBaseContentEditForm
-from lmu.policy.base.browser import _AbstractLMUBaseContentView
-from lmu.policy.base.browser import _AbstractLMUBaseListingView
-from lmu.policy.base.browser import _FrontPageIncludeMixin
-from lmu.policy.base.browser import _EntryViewMixin
+from lmu.policy.base.browser.content import _AbstractLMUBaseContentEditForm
+from lmu.policy.base.browser.content import _AbstractLMUBaseContentView
+from lmu.policy.base.browser.content import _EntryViewMixin
+from lmu.policy.base.browser.content_listing import _AbstractLMUBaseListingView
+from lmu.policy.base.browser.content_listing import _FrontPageIncludeMixin
 
 
 def str2bool(v):
