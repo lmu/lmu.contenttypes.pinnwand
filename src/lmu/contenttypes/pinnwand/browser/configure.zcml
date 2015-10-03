@@ -27,6 +27,13 @@
         />
 
     <browser:page
+        for="lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry"
+        name="edit"
+        permission="cmf.ModifyPortalContent"
+        class=".views.PinnwandEntryEditForm"
+        />
+
+    <browser:page
         name="report_innwand_entry"
         for="lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry"
         permission="zope2.View"

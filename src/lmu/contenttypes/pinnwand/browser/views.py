@@ -6,7 +6,9 @@ from plone import api
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
+from lmu.contenttypes.blog import MESSAGE_FACTORY as _  # XXX move translations
 from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
+from lmu.policy.base.browser import _AbstractLMUBaseContentEditForm
 from lmu.policy.base.browser import _AbstractLMUBaseContentView
 from lmu.policy.base.browser import _AbstractLMUBaseListingView
 from lmu.policy.base.browser import _FrontPageIncludeMixin
@@ -52,6 +54,14 @@ class EntryView(_AbstractLMUBaseContentView, _EntryViewMixin):
 
     def __call__(self):
         return self.template()
+
+
+class PinnwandEntryEditForm(_AbstractLMUBaseContentEditForm):
+    template = ViewPageTemplateFile('templates/pinnwand_entry_edit.pt')
+
+    description = _(u'Bearbeiten Sie Ihren Pinnwand-Beitrag. Klicken Sie anschließend auf "Vorschau", um die Eingaben zu überprüfen und den Blog-Eintrag zu veröffentlichen.')
+
+    portal_type = 'Pinnwand Entry'
 
 
 @provider(IContextAwareDefaultFactory)
