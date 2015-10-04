@@ -49,7 +49,7 @@
         />
 
     <browser:page
-        name="report_innwand_entry"
+        name="report_pinnwand_entry"
         for="lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry"
         permission="zope2.View"
         class="..content.PinnwandReportForm"

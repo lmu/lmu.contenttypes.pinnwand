@@ -4,10 +4,10 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone import api
 from plone.dexterity.browser import add
+from plone.dexterity.browser import edit
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
-from lmu.policy.base.browser.content import _AbstractLMUBaseContentEditForm
 from lmu.policy.base.browser.content import _AbstractLMUBaseContentView
 from lmu.policy.base.browser.content import _EntryViewMixin
 from lmu.policy.base.browser.content import RichTextWidgetConfig
@@ -69,7 +69,7 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
 
     def update(self):
         self.updateWidgets()
-
+        import ipdb; ipdb.set_trace()
         text = self.schema.get('text')
         text.widget = RichTextWidgetConfig()
 
@@ -77,7 +77,7 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
                    fields_to_show=[],
                    fields_to_input=['title', 'description', 'IPublication.expires'],
                    fields_to_hide=['IPublication.effective', ],
-                   fields_to_omit=['IPublication.effective', 'IPublication.expires', 'IVersionable.changeNote'])
+                   fields_to_omit=['IVersionable.changeNote', ])
 
         buttons = self.buttons
         for button in buttons.values():
@@ -94,7 +94,7 @@ class PinnwandEntryAddView(add.DefaultAddView):
     groups = form.groups
 
 
-class PinnwandEntryEditForm(_AbstractLMUBaseContentEditForm):
+class PinnwandEntryEditForm(edit.DefaultEditForm):
 
     template = ViewPageTemplateFile('templates/pinnwand_entry_edit.pt')
 
@@ -112,7 +112,7 @@ class PinnwandEntryEditForm(_AbstractLMUBaseContentEditForm):
                    fields_to_show=[],
                    fields_to_input=['title', 'description', 'IPublication.expires'],
                    fields_to_hide=['IPublication.effective', ],
-                   fields_to_omit=['IPublication.effective', 'IPublication.expires', 'IVersionable.changeNote'])
+                   fields_to_omit=['IVersionable.changeNote', ])
 
         buttons = self.buttons
 
