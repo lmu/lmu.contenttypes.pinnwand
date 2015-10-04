@@ -114,11 +114,16 @@
                    tal:define="author python:pas_member.info(item_creator);">
 
                 <a href="#"
-                   tal:attributes="href string:${navigation_root_url}/author/${item_creator}"
+                   tal:define="explicite_url author/home_page;
+                               external_url string:${navigation_root_url}/resources/iuk/redirect/goto/person/${item_creator};
+                               default_url string:${navigation_root_url}/author/${item_creator};
+                               href_url python: explicite_url if explicite_url else external_url;"
+                   tal:attributes="href href_url;"
                    tal:content="author/name_or_id">
                       Bob Dobalina
                 </a> 
                 <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
+                <em tal:condition="python: item_state != 'internally_published'" i18n:translate="">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
               </div>
             </hgroup>
           </div>
@@ -173,7 +178,7 @@
               </div>
 
               <div class="helper-margin-top-m">
-                <a class="button small-12" href="mailto:#" tal:attributes="href context/pinnwand_entry_vendor_email" i18n:translate="">E-Mail</a>
+                <a class="button small-12" href="mailto:#" tal:attributes="href python: 'mailto:' + context.pinnwand_entry_vendor_email" i18n:translate="">E-Mail</a>
               </div>
 
 
