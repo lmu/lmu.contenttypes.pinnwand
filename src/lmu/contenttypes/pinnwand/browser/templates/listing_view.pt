@@ -56,23 +56,6 @@
                                last python: 'lastTileItem' if islast else '';
                                sklass string:row pinnwand-entry tileItem ${last} visualIEFloatFix">
 
-            <figure tal:define="scales item/@@images;"
-                    tal:condition="item/image" 
-                    class="pinnwand-lead-image tileImage small-3 left helper-margin-right-m helper-margin-bottom-m ">
-              <a href="#"
-                 tal:attributes="href python: item_type in use_view_action and item_url+'/view' or item_url">
-                <picture>
-                  <source media="(min-width: 64em)" tal:define="scaled_image python: scales.scale('image', scale='xlarge');" tal:attributes="srcset scaled_image/url;"/>
-                  <source media="(min-width: 52em)" tal:define="scaled_image python: scales.scale('image', scale='large');" tal:attributes="srcset scaled_image/url;"/>
-                  <source media="(min-width: 42em)" tal:define="scaled_image python: scales.scale('image', scale='preview');" tal:attributes="srcset scaled_image/url;" />
-                  <source media="(min-width: 36em)" tal:define="scaled_image python: scales.scale('image', scale='mini');" tal:attributes="srcset scaled_image/url;" />
-                  <source media="(min-width: 24em)" tal:define="scaled_image python: scales.scale('image', scale='thumb');" tal:attributes="srcset scaled_image/url;" />
-                  <img tal:replace="structure python: scales.tag('image', scale='preview', alt=item.image_caption)" />
-                </picture>
-                <figcaption tal:content="item/image_caption" tal:condition="item/image_caption">Caption</figcaption>
-              </a>
-            </figure>
-
             <hgroup>
               <div>
                   <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
@@ -100,6 +83,20 @@
                 <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
               </div>
             </hgroup>
+
+            <tal:block  tal:condition="item/images" >
+              <figure tal:define="images item/images;
+                                  first_image python: images[0];
+                                  scales first_image/@@images;"
+                      class="blog-lead-image tileImage left helper-margin-top-m helper-margin-right-m helper-margin-bottom-m ">
+                <a href="#"
+                   tal:attributes="href string:${item_url}/@@images/image/large">
+                  <!--img tal:replace="structure python: scales.tag('image', scale='teaser', alt=item.image_caption)" /-->
+                  <img tal:replace="structure python: scales.tag('image', scale='listing_teaser', direction='down')" />
+                  <figcaption tal:content="first_image/title" tal:condition="first_image">Caption</figcaption>
+                </a>
+              </figure>
+            </tal:block>
 
             <div class="tileBody helper-margin-top-m">
               <tal:tileBody tal:content="structure item/text/output">

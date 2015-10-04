@@ -3,16 +3,20 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone import api
+from plone.dexterity.browser import add
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
-from lmu.contenttypes.blog import MESSAGE_FACTORY as _  # XXX move translations
-from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
 from lmu.policy.base.browser.content import _AbstractLMUBaseContentEditForm
 from lmu.policy.base.browser.content import _AbstractLMUBaseContentView
 from lmu.policy.base.browser.content import _EntryViewMixin
+from lmu.policy.base.browser.content import RichTextWidgetConfig
+from lmu.policy.base.browser.content import formHelper
 from lmu.policy.base.browser.content_listing import _AbstractLMUBaseListingView
 from lmu.policy.base.browser.content_listing import _FrontPageIncludeMixin
+
+from lmu.contenttypes.blog import MESSAGE_FACTORY as _  # XXX move translations
+from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
 
 
 def str2bool(v):
@@ -56,12 +60,67 @@ class EntryView(_AbstractLMUBaseContentView, _EntryViewMixin):
         return self.template()
 
 
-class PinnwandEntryEditForm(_AbstractLMUBaseContentEditForm):
-    template = ViewPageTemplateFile('templates/pinnwand_entry_edit.pt')
-
-    description = _(u'Bearbeiten Sie Ihren Pinnwand-Beitrag. Klicken Sie anschließend auf "Vorschau", um die Eingaben zu überprüfen und den Blog-Eintrag zu veröffentlichen.')
+class PinnwandEntryAddForm(add.DefaultAddForm):
+    template = ViewPageTemplateFile('templates/pinnwand_entry_add.pt')
 
     portal_type = 'Pinnwand Entry'
+    label = None
+    description = _(u'Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an, und klicken Sie auf "Weiter". Danach können Sie Bilder und andere Dateien hinzufügen.')
+
+    def update(self):
+        self.updateWidgets()
+
+        text = self.schema.get('text')
+        text.widget = RichTextWidgetConfig()
+
+        formHelper(self,
+                   fields_to_show=[],
+                   fields_to_input=['title', 'description', 'IPublication.expires'],
+                   fields_to_hide=['IPublication.effective', ],
+                   fields_to_omit=['IPublication.effective', 'IPublication.expires', 'IVersionable.changeNote'])
+
+        buttons = self.buttons
+        for button in buttons.values():
+            #button.klass = u' button large round'
+            if button.__name__ == 'save':
+                button.title = _(u'Next')
+
+        return super(PinnwandEntryAddForm, self).update()
+
+
+class PinnwandEntryAddView(add.DefaultAddView):
+    form = PinnwandEntryAddForm
+    widgets = form.widgets
+    groups = form.groups
+
+
+class PinnwandEntryEditForm(_AbstractLMUBaseContentEditForm):
+
+    template = ViewPageTemplateFile('templates/pinnwand_entry_edit.pt')
+
+    description = _(u'Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf "Vorschau", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen.')
+
+    portal_type = 'Pinnwand Entry'
+
+    def __call__(self):
+        self.updateWidgets()
+
+        text = self.schema.get('text')
+        text.widget = RichTextWidgetConfig()
+
+        formHelper(self,
+                   fields_to_show=[],
+                   fields_to_input=['title', 'description', 'IPublication.expires'],
+                   fields_to_hide=['IPublication.effective', ],
+                   fields_to_omit=['IPublication.effective', 'IPublication.expires', 'IVersionable.changeNote'])
+
+        buttons = self.buttons
+
+        for button in buttons.values():
+            if button.__name__ == 'save':
+                button.title = _(u'Preview')
+
+        return super(PinnwandEntryEditForm, self).__call__()
 
 
 @provider(IContextAwareDefaultFactory)
