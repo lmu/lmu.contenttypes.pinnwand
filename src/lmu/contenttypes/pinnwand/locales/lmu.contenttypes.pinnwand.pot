@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-10-04 20:54+0000\n"
+"POT-Creation-Date: 2015-10-04 21:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: manual\n"
 
-#: ./browser/templates/entry_view.pt:181
-msgid "Ablaufdatum"
+#: ./browser/templates/entry_view.pt:186
+msgid "Ablaufdatum:"
 msgstr ""
 
 #: ./browser/templates/pinnwand_entry_add.pt:9
 msgid "Add Pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:169
+#: ./browser/templates/entry_view.pt:174
 msgid "Anbieter/in Information"
 msgstr ""
 
@@ -37,11 +37,15 @@ msgstr ""
 msgid "Delete Pinnwand Entry"
 msgstr ""
 
+#: ./browser/templates/entry_view.pt:126
+msgid "Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht"
+msgstr ""
+
 #: ./browser/templates/entry_view.pt:93
 msgid "Document Status is:"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:176
+#: ./browser/templates/entry_view.pt:181
 msgid "E-Mail"
 msgstr ""
 
@@ -49,11 +53,11 @@ msgstr ""
 msgid "Edit Pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:145
+#: ./browser/templates/frontpage_view.pt:149
 msgid "Einen Pinnwand-Eintrag verfassen"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:186
+#: ./browser/templates/entry_view.pt:191
 msgid "Files"
 msgstr ""
 

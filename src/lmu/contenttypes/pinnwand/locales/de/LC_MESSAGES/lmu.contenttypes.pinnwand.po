@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/entry_view.pt:181
+#: ./browser/templates/entry_view.pt:186
 msgid "Ablaufdatum:"
 msgstr "Ablaufdatum:"
 
@@ -22,7 +22,7 @@ msgstr "Ablaufdatum:"
 msgid "Add Pinnwand Entry"
 msgstr "Pinnwand-Eintrag verfassen"
 
-#: ./browser/templates/entry_view.pt:169
+#: ./browser/templates/entry_view.pt:174
 msgid "Anbieter/in Information"
 msgstr "Anbieter/in Information"
 
@@ -34,11 +34,15 @@ msgstr "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"V
 msgid "Delete Pinnwand Entry"
 msgstr "Lösche Pinnwandeintrag"
 
+#: ./browser/templates/entry_view.pt:126
+msgid "Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht"
+msgstr "Dieser Pinnwand-Eintrag ist noch nicht veröffentlicht"
+
 #: ./browser/templates/entry_view.pt:93
 msgid "Document Status is:"
 msgstr "Status: "
 
-#: ./browser/templates/entry_view.pt:176
+#: ./browser/templates/entry_view.pt:181
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -46,11 +50,11 @@ msgstr "E-Mail"
 msgid "Edit Pinnwand Entry"
 msgstr "Bearbeite Pinnwandeintrag"
 
-#: ./browser/templates/frontpage_view.pt:145
+#: ./browser/templates/frontpage_view.pt:149
 msgid "Einen Pinnwand-Eintrag verfassen"
 msgstr "Einen Pinnwand-Eintrag verfassen"
 
-#: ./browser/templates/entry_view.pt:186
+#: ./browser/templates/entry_view.pt:191
 msgid "Files"
 msgstr "Dateien"
 
