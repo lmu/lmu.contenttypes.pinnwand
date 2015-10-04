@@ -172,13 +172,13 @@
                 Freitext
               </div>
 
-              <div>
+              <div class="helper-margin-top-m">
                 <a class="button small-12" href="mailto:#" tal:attributes="href context/pinnwand_entry_vendor_email" i18n:translate="">E-Mail</a>
               </div>
 
 
               <div>
-                <span i18n:translate="" >Ablaufdatum</span> <span tal:content="context/expires" >Datum</span>
+                <span i18n:translate="" >Ablaufdatum:</span> <span tal:define="expires context/expires" tal:content="python: toLocalizedTime(expires,long_format=1)" >Datum</span>
               </div>
             </div>
 

@@ -15,8 +15,8 @@ msgstr ""
 "Domain: DOMAIN\n"
 
 #: ./browser/templates/entry_view.pt:181
-msgid "Ablaufdatum"
-msgstr "Ablaufdatum"
+msgid "Ablaufdatum:"
+msgstr "Ablaufdatum:"
 
 #: ./browser/templates/pinnwand_entry_add.pt:9
 msgid "Add Pinnwand Entry"
