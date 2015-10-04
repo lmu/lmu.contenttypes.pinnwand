@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-10-04 20:42+0000\n"
+"POT-Creation-Date: 2015-10-04 20:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 
 #: ./browser/templates/entry_view.pt:181
 msgid "Ablaufdatum"
+msgstr ""
+
+#: ./browser/templates/pinnwand_entry_add.pt:9
+msgid "Add Pinnwand Entry"
 msgstr ""
 
 #: ./browser/templates/entry_view.pt:169
@@ -136,6 +140,8 @@ msgid "Reported URL"
 msgstr ""
 
 #: ./browser/templates/listing_view.pt:15
+#: ./browser/templates/pinnwand_entry_add.pt:8
+#: ./browser/templates/pinnwand_entry_edit.pt:10
 msgid "Show Pinnwand Rules"
 msgstr ""
 

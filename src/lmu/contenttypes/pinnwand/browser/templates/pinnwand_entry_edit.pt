@@ -3,14 +3,14 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="lmu.contenttypes.blog">
+      i18n:domain="lmu.contenttypes.pinnwand">
 
     <metal:block fill-slot="main">
         <div class="clearfix">
             <a class="toogle button radius small right" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a>
             <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
         </div>
-        <div id="rules" class="blog_info reveal-modal xlarge" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
+        <div id="rules" class="pinnwand_info reveal-modal xlarge" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
             <tal:rules tal:define="parent context/getParentNode;
                                    output parent/text/output"
                 tal:content="structure output">

@@ -18,6 +18,10 @@ msgstr ""
 msgid "Ablaufdatum"
 msgstr "Ablaufdatum"
 
+#: ./browser/templates/pinnwand_entry_add.pt:9
+msgid "Add Pinnwand Entry"
+msgstr "Pinnwand-Eintrag verfassen"
+
 #: ./browser/templates/entry_view.pt:169
 msgid "Anbieter/in Information"
 msgstr "Anbieter/in Information"
@@ -128,6 +132,8 @@ msgid "Reported URL"
 msgstr "Gemeldetet URL"
 
 #: ./browser/templates/listing_view.pt:15
+#: ./browser/templates/pinnwand_entry_add.pt:8
+#: ./browser/templates/pinnwand_entry_edit.pt:10
 msgid "Show Pinnwand Rules"
 msgstr "Tipps & Tricks für die ZUV-Pinnwand"
 
