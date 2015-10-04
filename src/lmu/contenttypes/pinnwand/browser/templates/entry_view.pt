@@ -26,7 +26,10 @@
                              item_creator context/Creator;
                              item_type context/portal_type;
                              item_modified context/ModificationDate;
-                             item_url context/getURL|context/absolute_url;">
+                             item_url context/getURL|context/absolute_url;
+                             item_state context/@@plone_context_state/workflow_state;
+                             show_border context/@@plone/showEditableBorder;
+                             show_border python:show_border and not ajax_load">
   <main id="content" class="pinnwand">
     <div class="row">
       <article class="pinnwand columns small-12 large-10 large-centered helper-margin-top-m">

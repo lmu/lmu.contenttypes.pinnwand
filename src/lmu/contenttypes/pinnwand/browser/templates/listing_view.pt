@@ -50,6 +50,7 @@
                                item_type entry/portal_type;
                                item_modified entry/ModificationDate;
                                item_url item/getURL|item/absolute_url;
+                               item_state entry/review_state;
                                member python:view.get_memberdata(item);
                                text python:view.strip_text(item);
                                islast repeat/entry/end;
@@ -84,6 +85,7 @@
                   Bob Dobalina
                 </a> 
                 <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
+                <em tal:condition="python: item_state != 'internally_published'" i18n:translate="">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
               </div>
             </hgroup>
 
