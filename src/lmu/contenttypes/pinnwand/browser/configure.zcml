@@ -26,6 +26,21 @@
         class=".views.EntryView"
         />
 
+    <adapter
+        for="Products.CMFCore.interfaces.IFolderish
+             zope.publisher.interfaces.browser.IDefaultBrowserLayer
+             plone.dexterity.interfaces.IDexterityFTI"
+        provides="zope.publisher.interfaces.browser.IBrowserPage"
+        factory=".views.PinnwandEntryAddView"
+        name="Pinnwand Entry"
+        />
+    <class class=".views.PinnwandEntryAddView">
+        <require
+            permission="cmf.AddPortalContent"
+            interface="zope.publisher.interfaces.browser.IBrowserPage"
+            />
+    </class>
+
     <browser:page
         for="lmu.contenttypes.pinnwand.interfaces.IPinnwandEntry"
         name="edit"
