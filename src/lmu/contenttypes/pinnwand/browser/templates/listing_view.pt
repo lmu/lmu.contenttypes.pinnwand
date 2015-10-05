@@ -32,9 +32,11 @@
           </a>
         </div>
       </header>
+      <tal:results tal:define="batch view/batch">
+      <tal:listing condition="batch">
       <div id="pinnwand-main" class="row">
         <div class="columns small-12 large-10 large-centered " >
-        <tal:block tal:repeat="entry view/entries"
+        <tal:block tal:repeat="entry batch"
                    tal:define="isAnon context/@@plone_portal_state/anonymous;
                                normalizeString nocall: context/plone_utils/normalizeString;
                                toLocalizedTime nocall: context/@@plone/toLocalizedTime;
@@ -115,8 +117,15 @@
         </tal:block>
         </div>
       </div>
+      </tal:listing>
       <footer id="pinnwand-footer" class="row"
               tal:condition="view/can_add">
+        <div class="row">
+            <div class="columns small-12 pagination-centered">
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </div>
+        </div>
+
         <div class="columns small-12 large-10 large-centered">
           <a class="button small-12"
              tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
@@ -126,6 +135,7 @@
           </a>
         </div>
       </footer>
+      </tal:results>
     </main>
   </metal:content>
 

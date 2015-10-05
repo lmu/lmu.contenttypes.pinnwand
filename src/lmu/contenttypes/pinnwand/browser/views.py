@@ -46,7 +46,7 @@ class FrontPageIncludeView(_AbstractLMUBaseListingView, _FrontPageIncludeMixin):
 
     template = ViewPageTemplateFile('templates/frontpage_view.pt')
 
-    DEFAULT_LIMIT = 20
+    DEFAULT_LIMIT = 3
     portal_type = 'Pinnwand Entry'
     container_interface = IPinnwandFolder
     sort_on = 'modified'
