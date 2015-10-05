@@ -125,10 +125,10 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
 @provider(IContextAwareDefaultFactory)
 def vendorDefaultFactory(context):
     user = api.user.get_current()
-    return unicode(user.fullname)
+    return unicode(user.getProperty('fullname'))
 
 
 @provider(IContextAwareDefaultFactory)
 def vendorEmailDefaultFactory(context):
     user = api.user.get_current()
-    return unicode(user.email)
+    return unicode(user.getProperty('email'))
