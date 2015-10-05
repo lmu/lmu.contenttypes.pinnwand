@@ -46,7 +46,7 @@
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
     </field>
 
-    <field name="expires" type="zope.schema.Datetime">
+    <field name="expires" type="zope.schema.Datetime" form:validator="lmu.contenttypes.pinnwand.browser.views.ExpiresValidator">
       <title i18n:translate="label_expiration_date" >Ablaufdatum</title>
       <description i18n:translate="help_expiration_date" >Das Datum, an dem der Artikel abläuft.</description>
       <required>True</required>

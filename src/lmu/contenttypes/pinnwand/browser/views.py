@@ -7,6 +7,8 @@ from datetime import timedelta
 from plone import api
 from plone.dexterity.browser import add
 from plone.dexterity.browser import edit
+from z3c.form.validator import SimpleFieldValidator
+from zope.interface.exceptions import Invalid
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
@@ -142,3 +144,11 @@ def vendorEmailDefaultFactory(context):
 def expiresDefaultFactory(context):
     default_date = datetime.now() + timedelta(15)
     return datetime(default_date.year, default_date.month, default_date.day)
+
+
+class ExpiresValidator(SimpleFieldValidator):
+
+    def validate(self, value):
+        super(ExpiresValidator, self).validate(value)
+        if not value < datetime.now() + timedelta(186):
+            raise Invalid("Eintrag muss in spätestens 6 Monaten ablaufen")
