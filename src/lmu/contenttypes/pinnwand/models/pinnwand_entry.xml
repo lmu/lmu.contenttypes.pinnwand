@@ -16,7 +16,7 @@
     <field name="pinnwand_entry_type" type="zope.schema.Choice" form:widget="z3c.form.browser.radio.RadioFieldWidget">
       <title i18n:translate="pinnwannd_entry_type_title" >Kategorie</title>
       <!--description i18n:translate="pinnwannd_entry_title_title" >To which Category does your offer belong</description-->
-      <required>False</required>
+      <required>True</required>
       <source>lmu.contenttypes.pinnwand.content.pinnwand_entry_types_vocabulary</source>
     </field>
 
@@ -44,6 +44,13 @@
       <description i18n:translate="pinnwannd_entry_vendoremail_description" >Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können.</description>
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
+    </field>
+
+    <field name="expires" type="zope.schema.Datetime">
+      <title i18n:translate="label_expiration_date" >Ablaufdatum</title>
+      <description i18n:translate="help_expiration_date" >Das Datum, an dem der Artikel abläuft.</description>
+      <required>True</required>
+      <defaultFactory>lmu.contenttypes.pinnwand.browser.views.expiresDefaultFactory</defaultFactory>
     </field>
   </schema>
 </model>

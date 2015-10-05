@@ -2,6 +2,8 @@
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from datetime import datetime
+from datetime import timedelta
 from plone import api
 from plone.dexterity.browser import add
 from plone.dexterity.browser import edit
@@ -74,8 +76,9 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
 
         formHelper(self,
                    fields_to_show=[],
-                   fields_to_input=['title', 'description', 'IPublication.expires'],
-                   fields_to_hide=['IPublication.effective', ],
+                   fields_to_input=['title', 'description', 'expires'],
+                   fields_to_hide=['IPublication.effective',
+                                   'IPublication.expires', ],
                    fields_to_omit=['IVersionable.changeNote', ])
 
         buttons = self.buttons
@@ -109,8 +112,9 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
 
         formHelper(self,
                    fields_to_show=[],
-                   fields_to_input=['title', 'description', 'IPublication.expires'],
-                   fields_to_hide=['IPublication.effective', ],
+                   fields_to_input=['title', 'description', 'expires'],
+                   fields_to_hide=['IPublication.effective',
+                                   'IPublication.expires', ],
                    fields_to_omit=['IVersionable.changeNote', ])
 
         buttons = self.buttons
@@ -132,3 +136,9 @@ def vendorDefaultFactory(context):
 def vendorEmailDefaultFactory(context):
     user = api.user.get_current()
     return unicode(user.getProperty('email'))
+
+
+@provider(IContextAwareDefaultFactory)
+def expiresDefaultFactory(context):
+    default_date = datetime.now() + timedelta(15)
+    return datetime(default_date.year, default_date.month, default_date.day)
