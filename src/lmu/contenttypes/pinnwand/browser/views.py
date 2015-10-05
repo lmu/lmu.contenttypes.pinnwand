@@ -2,9 +2,13 @@
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from datetime import datetime
+from datetime import timedelta
 from plone import api
 from plone.dexterity.browser import add
 from plone.dexterity.browser import edit
+from z3c.form.validator import SimpleFieldValidator
+from zope.interface.exceptions import Invalid
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
@@ -74,8 +78,9 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
 
         formHelper(self,
                    fields_to_show=[],
-                   fields_to_input=['title', 'description', 'IPublication.expires'],
-                   fields_to_hide=['IPublication.effective', ],
+                   fields_to_input=['title', 'description', 'expires'],
+                   fields_to_hide=['IPublication.effective',
+                                   'IPublication.expires', ],
                    fields_to_omit=['IVersionable.changeNote', ])
 
         buttons = self.buttons
@@ -109,8 +114,9 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
 
         formHelper(self,
                    fields_to_show=[],
-                   fields_to_input=['title', 'description', 'IPublication.expires'],
-                   fields_to_hide=['IPublication.effective', ],
+                   fields_to_input=['title', 'description', 'expires'],
+                   fields_to_hide=['IPublication.effective',
+                                   'IPublication.expires', ],
                    fields_to_omit=['IVersionable.changeNote', ])
 
         buttons = self.buttons
@@ -125,10 +131,24 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
 @provider(IContextAwareDefaultFactory)
 def vendorDefaultFactory(context):
     user = api.user.get_current()
-    return unicode(user.fullname)
+    return unicode(user.getProperty('fullname'))
 
 
 @provider(IContextAwareDefaultFactory)
 def vendorEmailDefaultFactory(context):
     user = api.user.get_current()
-    return unicode(user.email)
+    return unicode(user.getProperty('email'))
+
+
+@provider(IContextAwareDefaultFactory)
+def expiresDefaultFactory(context):
+    default_date = datetime.now() + timedelta(15)
+    return datetime(default_date.year, default_date.month, default_date.day)
+
+
+class ExpiresValidator(SimpleFieldValidator):
+
+    def validate(self, value):
+        super(ExpiresValidator, self).validate(value)
+        if not value < datetime.now() + timedelta(186):
+            raise Invalid("Eintrag muss in spätestens 6 Monaten ablaufen")

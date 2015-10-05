@@ -180,7 +180,7 @@
                 Freitext
               </div>
 
-              <div class="helper-margin-top-m">
+              <div class="helper-margin-top-m" tal:condition="context/pinnwand_entry_vendor_email">
                 <a class="button small-12" href="mailto:#" tal:attributes="href python: 'mailto:' + context.pinnwand_entry_vendor_email" i18n:translate="">E-Mail</a>
               </div>
 
