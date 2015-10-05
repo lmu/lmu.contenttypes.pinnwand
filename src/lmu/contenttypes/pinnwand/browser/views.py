@@ -69,7 +69,6 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
 
     def update(self):
         self.updateWidgets()
-        import ipdb; ipdb.set_trace()
         text = self.schema.get('text')
         text.widget = RichTextWidgetConfig()
 
