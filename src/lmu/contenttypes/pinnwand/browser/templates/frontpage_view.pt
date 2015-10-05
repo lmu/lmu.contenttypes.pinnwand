@@ -69,10 +69,12 @@
     </div>
   </div>
 </header>
+<tal:results tal:define="batch view/batch">
 <div id="pinnwand-main" class="row overview-light" >
   <div class="columns small-12 large-10 large-centered overview-column" >
+   <tal:listing condition="batch">
     <div class="row helper-margin-bottom-m clearfix">
-        <tal:block tal:repeat="entry view/entries">
+        <tal:block tal:repeat="entry batch">
         <tal:entry tal:define="item entry/getObject;
                                item_creator entry/Creator;
                                item_type entry/portal_type;
@@ -143,10 +145,17 @@
         </tal:entry>
         </tal:block>
     </div>
+    </tal:listing>
   </div>
 </div>
 
 <footer id="pinnwand-footer" class="row overview-light" tal:condition="not: view/author | view/can_add">
+      <div class="row">
+        <div class="columns small-12 pagination-centered">
+          <div metal:use-macro="context/batch_macros/macros/navigation" />
+        </div>
+      </div>
+
   <div class="columns  small-12 large-10 large-centered">
     <a class="button link-overlay small-12"
        tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
@@ -156,6 +165,7 @@
     </a>
   </div>
 </footer>
+</tal:results>
 
 </section>
 </body>
