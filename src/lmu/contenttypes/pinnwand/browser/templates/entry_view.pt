@@ -31,6 +31,21 @@
                              show_border context/@@plone/showEditableBorder;
                              show_border python:show_border and not ajax_load">
   <main id="content" class="pinnwand">
+
+    <div class="row helper-margin-top-l">
+      <div class="columns small-12 large-10 large-centered" >
+
+        <div id="edit-bar"
+             tal:condition="show_border"
+             tal:content="structure provider:plone.contentviews" />
+
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+            Status message
+        </div>
+
+      </div>
+    </div>
+
     <div class="row">
       <article class="pinnwand columns small-12 large-10 large-centered helper-margin-top-m">
         <div id="iuk-documemt-infos"
@@ -87,17 +102,18 @@
                i18n:translate=""
                i18n:attributes="title" >Sperren</a>
 
+          <p><span i18n:translate="">Hinweis</span> <a class="toogle" href="#" data-reveal-id="rules" i18n:translate="" >Nutzungsbedingungen</a> <span i18n:translate="">einverstanden.</span> </p>
           </div>
 
-          <div class="document-infos helper-margin-bottom-l">
-            <span tal:condition="view/isOwner" tal:omit-tag="" i18n:translate="" >You are Owner of this Pinnwand Entry</span>
-            <span tal:condition="view/isManager" tal:omit-tag="" i18n:translate="" >You are a Manager</span> 
-            &mdash;
-            <span i18n:translate="" tal:omit-tag="" >Document Status is:</span>
-            <span tal:condition="view/isPrivate" i18n:translate="" class="private" >Workflow State Private</span>
-            <span tal:condition="view/isInternallyPublished" i18n:translate="" class="published" >Workflow State Published</span>
-          </div>
 
+        <div id="rules" class="pinnwand_info reveal-modal xlarge" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
+            <tal:rules tal:define="parent context/getParentNode;
+                                   output parent/text/output"
+                tal:content="structure output">
+                Content Body
+            </tal:rules>
+            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        </div>
         </div>
         <div class="row">
           <div class="large-12 columns">
@@ -169,13 +185,13 @@
           </div>
           <div class="columns small-12 medium-4" >
 
-            <div class="panel" 
+            <div class="helper-border helper-margin-bottom-l" 
                  tal:define="vendor context/pinnwand_entry_vendor;
                              vendor_contactinfo context/pinnwand_entry_vendor_contact_infotext;
                              vendor_email context/pinnwand_entry_vendor_email"
                  tal:condition="python: vendor or vendor_contactinfo or vendor_email" >
-              <h3 i18n:translate="">Anbieter/in Information</h3>
-              <h4 tal:content="context/pinnwand_entry_vendor" tal:condition="context/pinnwand_entry_vendor">Verkäufer/in</h4>
+              <h2 i18n:translate="">Contact</h2>
+              <h3 tal:content="context/pinnwand_entry_vendor" tal:condition="context/pinnwand_entry_vendor">Contact</h3>
               <div tal:content="context/pinnwand_entry_vendor_contact_infotext" tal:condition="context/pinnwand_entry_vendor_contact_infotext">
                 Freitext
               </div>
@@ -185,8 +201,8 @@
               </div>
 
 
-              <div>
-                <span i18n:translate="" >Ablaufdatum:</span> <span tal:define="expires context/expires" tal:content="python: toLocalizedTime(expires,long_format=1)" >Datum</span>
+              <div class="helper-margin-top-m" >
+                <span i18n:translate="" >Ablaufdatum:</span> <span tal:define="expires context/expires" tal:content="python: toLocalizedTime(expires,long_format=0)" >Datum</span>
               </div>
             </div>
 

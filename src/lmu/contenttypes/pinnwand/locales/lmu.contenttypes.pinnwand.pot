@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-10-05 12:45+0000\n"
+"POT-Creation-Date: 2015-10-05 17:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: manual\n"
 
-#: ./browser/templates/entry_view.pt:189
+#: ./browser/templates/entry_view.pt:205
 msgid "Ablaufdatum:"
 msgstr ""
 
@@ -25,41 +25,37 @@ msgstr ""
 msgid "Add Pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:177
-msgid "Anbieter/in Information"
-msgstr ""
-
-#: ./browser/views.py:100
+#: ./browser/views.py:105
 msgid "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:55
+#: ./browser/templates/entry_view.pt:193
+msgid "Contact"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:70
 msgid "Delete Pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:129
-#: ./browser/templates/frontpage_view.pt:121
-#: ./browser/templates/listing_view.pt:89
+#: ./browser/templates/entry_view.pt:145
+#: ./browser/templates/frontpage_view.pt:123
+#: ./browser/templates/listing_view.pt:91
 msgid "Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:96
-msgid "Document Status is:"
-msgstr ""
-
-#: ./browser/templates/entry_view.pt:184
+#: ./browser/templates/entry_view.pt:200
 msgid "E-Mail"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:48
+#: ./browser/templates/entry_view.pt:63
 msgid "Edit Pinnwand Entry"
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:151
+#: ./browser/templates/frontpage_view.pt:160
 msgid "Einen Pinnwand-Eintrag verfassen"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:194
+#: ./browser/templates/entry_view.pt:210
 msgid "Files"
 msgstr ""
 
@@ -67,12 +63,18 @@ msgstr ""
 msgid "Folder for Pinnwand Entries with special views and restrictions"
 msgstr ""
 
-#: ./browser/views.py:68
+#: ./browser/views.py:72
 msgid "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an, und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:69
+#: ./browser/templates/entry_view.pt:84
 msgid "Hide"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:105
+#: ./browser/templates/pinnwand_entry_add.pt:28
+#: ./browser/templates/pinnwand_entry_edit.pt:27
+msgid "Hinweis"
 msgstr ""
 
 #: ./browser/templates/listing_view.pt:26
@@ -92,8 +94,14 @@ msgid "Name of the Person reporting this issue,
 will be filled by System."
 msgstr ""
 
-#: ./browser/views.py:85
+#: ./browser/views.py:90
 msgid "Next"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:105
+#: ./browser/templates/pinnwand_entry_add.pt:28
+#: ./browser/templates/pinnwand_entry_edit.pt:27
+msgid "Nutzungsbedingungen"
 msgstr ""
 
 #: ./profiles/default/types/Pinnwand_Entry.xml
@@ -112,15 +120,15 @@ msgstr ""
 msgid "Please describe why you report this Pinnwand Entry"
 msgstr ""
 
-#: ./browser/views.py:120
+#: ./browser/views.py:126
 msgid "Preview"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:62
+#: ./browser/templates/entry_view.pt:77
 msgid "Publish"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:76
+#: ./browser/templates/entry_view.pt:91
 msgid "Reject"
 msgstr ""
 
@@ -128,7 +136,7 @@ msgstr ""
 msgid "Report Message"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:40
+#: ./browser/templates/entry_view.pt:55
 #: ./content.py:51
 msgid "Report Pinnwand Entry"
 msgstr ""
@@ -151,7 +159,7 @@ msgstr ""
 msgid "Show Pinnwand Rules"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:83
+#: ./browser/templates/entry_view.pt:98
 msgid "Sperren"
 msgstr ""
 
@@ -163,24 +171,24 @@ msgstr ""
 msgid "The Reported URL of the Pinnwand Entry."
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:97
-msgid "Workflow State Private"
-msgstr ""
-
-#: ./browser/templates/entry_view.pt:98
-msgid "Workflow State Published"
-msgstr ""
-
-#: ./browser/templates/entry_view.pt:93
-msgid "You are Owner of this Pinnwand Entry"
-msgstr ""
-
-#: ./browser/templates/entry_view.pt:94
-msgid "You are a Manager"
-msgstr ""
-
 #: ./browser/templates/frontpage_view.pt:65
 msgid "Zur Pinnwand"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:105
+#: ./browser/templates/pinnwand_entry_add.pt:28
+#: ./browser/templates/pinnwand_entry_edit.pt:27
+msgid "einverstanden."
+msgstr ""
+
+#. Default: "Das Datum, an dem der Pinnwand-Eintrag abläuft."
+#: ./models/pinnwand_entry.xml
+msgid "help_expiration_date"
+msgstr ""
+
+#. Default: "Ablaufdatum"
+#: ./models/pinnwand_entry.xml
+msgid "label_expiration_date"
 msgstr ""
 
 #. Default: "Text"
@@ -198,7 +206,7 @@ msgstr ""
 msgid "pinnwannd_entry_type_title"
 msgstr ""
 
-#. Default: "Verkäufer/in"
+#. Default: "Kontakt"
 #: ./models/pinnwand_entry.xml
 msgid "pinnwannd_entry_vendor_title"
 msgstr ""
@@ -218,7 +226,7 @@ msgstr ""
 msgid "pinnwannd_entry_vendoremail_description"
 msgstr ""
 
-#. Default: "E-Mailadresse"
+#. Default: "E-Mail"
 #: ./models/pinnwand_entry.xml
 msgid "pinnwannd_entry_vendoremail_title"
 msgstr ""

@@ -27,7 +27,7 @@
     </field>
 
     <field name="pinnwand_entry_vendor" type="zope.schema.TextLine">
-      <title i18n:translate="pinnwannd_entry_vendor_title" >Verkäufer/in</title>
+      <title i18n:translate="pinnwannd_entry_vendor_title" >Kontakt</title>
       <!--description i18n:translate="pinnwannd_entry_title_title" >If you would like to offer this for someone else</description-->
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorDefaultFactory</defaultFactory>
@@ -40,15 +40,17 @@
     </field>
 
     <field name="pinnwand_entry_vendor_email" type="zope.schema.TextLine">
-      <title i18n:translate="pinnwannd_entry_vendoremail_title" >E-Mailadresse</title>
+      <title i18n:translate="pinnwannd_entry_vendoremail_title" >E-Mail</title>
       <description i18n:translate="pinnwannd_entry_vendoremail_description" >Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können.</description>
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
     </field>
 
-    <field name="expires" type="zope.schema.Datetime" form:validator="lmu.contenttypes.pinnwand.browser.views.ExpiresValidator">
+    <field name="expires" type="zope.schema.Datetime" 
+           form:validator="lmu.contenttypes.pinnwand.browser.views.ExpiresValidator"
+           >
       <title i18n:translate="label_expiration_date" >Ablaufdatum</title>
-      <description i18n:translate="help_expiration_date" >Das Datum, an dem der Artikel abläuft.</description>
+      <description i18n:translate="help_expiration_date" >Das Datum, an dem der Pinnwand-Eintrag abläuft.</description>
       <required>True</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.expiresDefaultFactory</defaultFactory>
     </field>
