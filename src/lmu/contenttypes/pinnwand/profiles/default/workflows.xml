@@ -7,5 +7,10 @@
     <type type_id="Pinnwand Entry">
       <bound-workflow workflow_id="pinnwand-workflow"/>
     </type>
+<!--
+    <type type_id="Pinnwand Folder">
+      <bound-workflow workflow_id="intranet_workflow"/>
+    </type>
+-->
   </bindings>
 </object>
