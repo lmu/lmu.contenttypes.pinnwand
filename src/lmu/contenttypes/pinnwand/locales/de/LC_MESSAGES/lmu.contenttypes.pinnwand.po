@@ -62,7 +62,7 @@ msgstr "Ordner für Pinnwand-Einträge, mit einer speziellen Ansicht und Einschr
 
 #: ./browser/views.py:72
 msgid "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an, und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
-msgstr "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an, und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
+msgstr "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
 
 #: ./browser/templates/entry_view.pt:84
 msgid "Hide"
@@ -149,7 +149,7 @@ msgstr "Gemeldetet URL"
 #: ./browser/templates/pinnwand_entry_add.pt:8
 #: ./browser/templates/pinnwand_entry_edit.pt:10
 msgid "Show Pinnwand Rules"
-msgstr "Tipps & Tricks für die ZUV-Pinnwand"
+msgstr "Tipps & Nutzungsbedingungen für die ZUV-Pinnwand"
 
 #: ./browser/templates/entry_view.pt:98
 msgid "Sperren"

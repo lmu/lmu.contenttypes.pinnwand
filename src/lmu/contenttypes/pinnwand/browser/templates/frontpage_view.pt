@@ -1,6 +1,6 @@
 <tal:doctype xmlns:tal="http://xml.zope.org/namespaces/tal" 
              tal:define="omit view/omit"
-             tal:omit-tag="omit" >
+             tal:condition="not:omit" >
 <!DOCTYPE html >
 </tal:doctype>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"

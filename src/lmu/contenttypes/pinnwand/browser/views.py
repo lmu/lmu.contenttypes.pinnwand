@@ -69,7 +69,7 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
 
     portal_type = 'Pinnwand Entry'
     label = None
-    description = _(u'Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an, und klicken Sie auf "Weiter". Danach können Sie Bilder und andere Dateien hinzufügen.')
+    description = _(u'Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an und klicken Sie auf "Weiter". Danach können Sie Bilder und andere Dateien hinzufügen.')
 
     def update(self):
         self.updateWidgets()
