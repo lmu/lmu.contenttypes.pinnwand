@@ -14,14 +14,14 @@
 <head tal:condition="not:omit">
   <title tal:content="context/Title"></title>
 
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_regular/stylesheet.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_italic/stylesheet.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_bold/stylesheet.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_bolditalic/stylesheet.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_semibold/stylesheet.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_semibolditalic/stylesheet.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/foundation-icons/foundation-icons.css" type="text/css" >
-    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/noto-serif/noto-serif.css" type="text/css" >
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_regular/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_italic/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_bold/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_bolditalic/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_semibold/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/opensans_semibolditalic/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/foundation-icons/foundation-icons.css" type="text/css" />
+    <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/fonts/noto-serif/noto-serif.css" type="text/css" />
     <!-- If you are using the gem version, you need this only -->
     <link rel="stylesheet" href="https://cms-static.uni-muenchen.de/default/foundation-zuv/css/foundation/app.css">
 
