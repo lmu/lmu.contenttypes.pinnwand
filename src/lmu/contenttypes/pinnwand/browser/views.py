@@ -11,7 +11,7 @@ from z3c.form.validator import SimpleFieldValidator
 from zope.interface.exceptions import Invalid
 from zope.interface import provider
 from plone.supermodel.interfaces import IDefaultFactory
-from zope.schema.interfaces import IContextAwareDefaultFactory
+#from zope.schema.interfaces import IContextAwareDefaultFactory
 
 from lmu.policy.base.browser.content import _AbstractLMUBaseContentView
 from lmu.policy.base.browser.content import _EntryViewMixin
@@ -130,19 +130,19 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
 
 
 @provider(IDefaultFactory)
-def vendorDefaultFactory(context):
+def vendorDefaultFactory():
     user = api.user.get_current()
     return unicode(user.getProperty('fullname'))
 
 
 @provider(IDefaultFactory)
-def vendorEmailDefaultFactory(context):
+def vendorEmailDefaultFactory():
     user = api.user.get_current()
     return unicode(user.getProperty('email'))
 
 
 @provider(IDefaultFactory)
-def expiresDefaultFactory(context):
+def expiresDefaultFactory():
     default_date = datetime.now() + timedelta(15)
     return datetime(default_date.year, default_date.month, default_date.day)
 
