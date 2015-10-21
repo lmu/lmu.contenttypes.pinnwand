@@ -41,7 +41,7 @@
 
     <field name="pinnwand_entry_vendor_email" type="zope.schema.TextLine">
       <title i18n:translate="pinnwannd_entry_vendoremail_title" >E-Mail</title>
-      <description i18n:translate="pinnwannd_entry_vendoremail_description" >Hier können Sie eine E-Mail-Adresse ein, unter der Sie erreicht werden können.</description>
+      <description i18n:translate="pinnwannd_entry_vendoremail_description" >Hier können Sie eine E-Mail-Adresse eingeben, unter der Sie erreicht werden können.</description>
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
     </field>
