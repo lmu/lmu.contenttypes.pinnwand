@@ -7,6 +7,10 @@ from datetime import timedelta
 from plone import api
 from plone.dexterity.browser import add
 from plone.dexterity.browser import edit
+from plone.dexterity.events import EditFinishedEvent
+from z3c.form import button
+from zope.event import notify
+
 from z3c.form.validator import SimpleFieldValidator
 from zope.interface.exceptions import Invalid
 from zope.interface import provider
@@ -93,6 +97,21 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
         return super(PinnwandEntryAddForm, self).update()
 
 
+    @button.buttonAndHandler(_('Save'), name='save')
+    def handleAdd(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        obj = self.createAndAdd(data)
+        if obj is not None:
+            # mark only as finished if we get the new object
+            self._finishedAdd = True
+            #IStatusMessage(self.request).addStatusMessage(
+            #    _(u"Item created"), "info success"
+            #)
+
+
 class PinnwandEntryAddView(add.DefaultAddView):
     form = PinnwandEntryAddForm
     widgets = form.widgets
@@ -127,6 +146,19 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
                 button.title = _(u'Preview')
 
         return super(PinnwandEntryEditForm, self).__call__()
+
+    @button.buttonAndHandler(_(u'Save'), name='save')
+    def handleApply(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        self.applyChanges(data)
+        #IStatusMessage(self.request).addStatusMessage(
+        #    _(u"Changes saved"), "info success"
+        #)
+        self.request.response.redirect(self.nextURL())
+        notify(EditFinishedEvent(self.context))
 
 
 @provider(IDefaultFactory)

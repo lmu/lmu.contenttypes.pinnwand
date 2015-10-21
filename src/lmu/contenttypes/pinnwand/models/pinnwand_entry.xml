@@ -35,13 +35,13 @@
 
     <field name="pinnwand_entry_vendor_contact_infotext" type="zope.schema.Text">
       <title i18n:translate="pinnwannd_entry_vendorcontactinfotext_title" >Contact Information</title>
-      <description i18n:translate="pinnwannd_entry_vendorcontactinfotext_description" >Hier können Sie weitere Informationen zur Kontakaufnahme angeben.</description>
+      <description i18n:translate="pinnwannd_entry_vendorcontactinfotext_description" >Hier können Sie weitere Informationen zur Kontaktaufnahme angeben.</description>
       <required>False</required>
     </field>
 
     <field name="pinnwand_entry_vendor_email" type="zope.schema.TextLine">
       <title i18n:translate="pinnwannd_entry_vendoremail_title" >E-Mail</title>
-      <description i18n:translate="pinnwannd_entry_vendoremail_description" >Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können.</description>
+      <description i18n:translate="pinnwannd_entry_vendoremail_description" >Hier können Sie eine E-Mail-Adresse ein, unter der Sie erreicht werden können.</description>
       <required>False</required>
       <defaultFactory>lmu.contenttypes.pinnwand.browser.views.vendorEmailDefaultFactory</defaultFactory>
     </field>

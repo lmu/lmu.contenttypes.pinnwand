@@ -204,20 +204,20 @@ msgstr "Kategorie"
 msgid "pinnwannd_entry_vendor_title"
 msgstr "Kontakt"
 
-#. Default: "Hier können Sie weitere Informationen zur Kontakaufnahme angeben."
+#. Default: "Hier können Sie weitere Informationen zur Kontaktaufnahme angeben."
 #: ./models/pinnwand_entry.xml
 msgid "pinnwannd_entry_vendorcontactinfotext_description"
-msgstr "Hier können Sie weitere Informationen zur Kontakaufnahme hinterlegen (z.B. Telefonnummer, Erreichbarkeitszeiten)."
+msgstr "Hier können Sie weitere Informationen zur Kontaktaufnahme hinterlegen (z.B. Telefonnummer, Erreichbarkeitszeiten)."
 
 #. Default: "Contact Information"
 #: ./models/pinnwand_entry.xml
 msgid "pinnwannd_entry_vendorcontactinfotext_title"
 msgstr "Weitere Infos zur Kontaktaufnahme"
 
-#. Default: "Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können."
+#. Default: "Hier können Sie eine E-Mailadresse eingeben, unter der Sie erreicht werden können."
 #: ./models/pinnwand_entry.xml
 msgid "pinnwannd_entry_vendoremail_description"
-msgstr "Hier können Sie eine E-Mailadresse ein, unter der Sie erreicht werden können."
+msgstr "Hier können Sie eine E-Mail-Adresse eingeben, unter der Sie erreicht werden können."
 
 #. Default: "E-Mail"
 #: ./models/pinnwand_entry.xml
