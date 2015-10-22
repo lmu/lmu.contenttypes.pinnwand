@@ -15,7 +15,8 @@ from z3c.form.validator import SimpleFieldValidator
 from zope.interface.exceptions import Invalid
 from zope.interface import provider
 from plone.supermodel.interfaces import IDefaultFactory
-#from zope.schema.interfaces import IContextAwareDefaultFactory
+#from zope.schema.interfaces import IContextAwareDefaultFactorying: utf-8 -*-
+from Products.CMFPlone.utils import safe_unicode
 
 from lmu.policy.base.browser.content import _AbstractLMUBaseContentView
 from lmu.policy.base.browser.content import _EntryViewMixin
@@ -164,7 +165,7 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
 @provider(IDefaultFactory)
 def vendorDefaultFactory():
     user = api.user.get_current()
-    return unicode(user.getProperty('fullname'))
+    return safe_unicode(user.getProperty('fullname'))
 
 
 @provider(IDefaultFactory)

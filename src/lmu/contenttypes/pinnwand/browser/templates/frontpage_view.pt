@@ -149,20 +149,22 @@
   </div>
 </div>
 
-<footer id="pinnwand-footer" class="row overview-light" tal:condition="not: view/author | view/can_add">
-      <div class="row">
-        <div class="columns small-12 pagination-centered">
-          <div metal:use-macro="context/batch_macros/macros/navigation" />
-        </div>
-      </div>
+<footer id="pinnwand-footer" class="overview-light" >
+  <div class="row" tal:condition="view/author" >
+    <div class="columns small-12 pagination-centered">
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+    </div>
+  </div>
 
-  <div class="columns  small-12 large-10 large-centered">
-    <a class="button link-overlay small-12"
-       tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
-       tal:attributes="href add_url;"
-       i18n:translate="">
-      Einen Pinnwand-Eintrag verfassen
-    </a>
+  <div class="row" tal:condition="not: view/author | view/can_add" >
+    <div class="columns  small-12 large-10 large-centered" >
+      <a class="button link-overlay small-12"
+         tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
+         tal:attributes="href add_url;"
+         i18n:translate="">
+        Einen Pinnwand-Eintrag verfassen
+      </a>
+    </div>
   </div>
 </footer>
 </tal:results>
