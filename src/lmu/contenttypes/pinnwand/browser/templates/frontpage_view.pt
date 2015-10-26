@@ -156,7 +156,8 @@
     </div>
   </div>
 
-  <div class="row" tal:condition="not: view/author | view/can_add" >
+  <div class="row" 
+       tal:condition="python: not view.author() and view.can_add()" >
     <div class="columns  small-12 large-10 large-centered" >
       <a class="button link-overlay small-12"
          tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
