@@ -52,7 +52,7 @@
 <header id="pinnwand-header" class="row overview-header helper-margin-top-xl">
   <div class="columns small-12 large-10 large-centered">
     <div class="row">
-      <div class="columns small-8">
+      <div class="columns small-12 medium-6 large-5">
         <h2 class="header-category">
           <a tal:attributes="href context/absolute_url;">
           <tal:title tal:condition="view/author" i18n:translate="" >Meine Pinnwand-Eintraege - </tal:title>
@@ -61,10 +61,13 @@
           </a>
         </h2>
       </div>
-      <div class="columns small-4">
-        <a class="more"
-           tal:attributes="href context/absolute_url;" 
-           i18n:translate="">Zur Pinnwand</a>
+      <div class="columns small-12 medium-6 large-7 more">
+        <a class="toogle" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a> / <br class="hide-for-large-up" />
+        <a tal:define="url context/absolute_url;
+                       url python: url if not view.author else url + '?author=' + view.author;"
+           tal:attributes="href url;" >
+           <tal:lang i18n:translate="">Alle Pinnwand-Eintraege</tal:lang> (<span tal:replace="view/absolute_length">Anzahl</span>)
+        </a>
       </div>
     </div>
   </div>
@@ -72,7 +75,13 @@
 <tal:results tal:define="batch view/batch">
 <div id="pinnwand-main" class="row overview-light" >
   <div class="columns small-12 large-10 large-centered overview-column" >
-   <tal:listing condition="batch">
+    <div id="rules" class="blog_info reveal-modal xlarge" aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;" data-reveal="data-reveal" >
+      <tal:rules tal:content="structure context/text/output">
+         Content Body
+      </tal:rules>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+    <tal:listing condition="batch">
     <div class="row helper-margin-bottom-m clearfix">
         <tal:block tal:repeat="entry batch">
         <tal:entry tal:define="item entry/getObject;
@@ -120,7 +129,7 @@
                 Bob Dobalina
               </a> 
               <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
-              <em tal:condition="python: item_state != 'internally_published'" i18n:translate="">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
+              <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
             </div>
           </hgroup>
 
@@ -149,16 +158,25 @@
   </div>
 </div>
 
-<footer id="pinnwand-footer" class="overview-light" >
-  <div class="row" tal:condition="view/author" >
-    <div class="columns small-12 pagination-centered">
-      <div metal:use-macro="context/batch_macros/macros/navigation" />
+</tal:results>
+<footer id="pinnwand-footer"
+        tal:define="url context/absolute_url;
+                    url python: url if not view.author else url + '?author=' + view.author;
+                    show_more python: 0 < int(view.b_size) < int(view.absolute_length());" >
+  <div class="row overview-light" tal:condition="show_more" >
+    <div class="columns small-12 large-10 large-centered pagination-centered">
+      <a class="button secondary helper-border large-4 small-12"
+         tal:attributes="href url;" >
+        <tal:lang i18n:translate="">weitere Pinnwand-Eintraege</tal:lang> (<tal:lang i18n:translate="">insgesamt</tal:lang> <span tal:replace="view/absolute_length">Anzahl</span>)
+      </a>
+      <tal:pagination tal:condition="nothing">
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
+      </tal:pagination>
     </div>
   </div>
 
-  <div class="row" 
-       tal:condition="python: not view.author() and view.can_add()" >
-    <div class="columns  small-12 large-10 large-centered" >
+  <div class="row overview-light" tal:condition="python: not view.author and view.can_add()" >
+    <div class="columns small-12 large-10 large-centered" >
       <a class="button link-overlay small-12"
          tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
          tal:attributes="href add_url;"
@@ -168,7 +186,6 @@
     </div>
   </div>
 </footer>
-</tal:results>
 
 </section>
 </body>

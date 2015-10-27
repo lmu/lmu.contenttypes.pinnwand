@@ -104,7 +104,7 @@
                   Bob Dobalina
                 </a> 
                 <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
-                <em tal:condition="python: item_state != 'internally_published'" i18n:translate="">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
+                <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
               </div>
             </hgroup>
 
@@ -135,12 +135,11 @@
         </div>
       </div>
       </tal:listing>
-      <footer id="pinnwand-footer" class="row"
+      <footer id="pinnwand-footer"
+              class="row helper-margin-top-l"
               tal:condition="view/can_add">
-        <div class="row">
-            <div class="columns small-12 pagination-centered">
-            <div metal:use-macro="context/batch_macros/macros/navigation" />
-            </div>
+        <div class="columns small-12 pagination-centered">
+          <div metal:use-macro="context/batch_macros/macros/navigation" />
         </div>
       </footer>
       </tal:results>
