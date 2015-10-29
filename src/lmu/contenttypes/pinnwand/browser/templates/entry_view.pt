@@ -43,11 +43,6 @@
             Status message
         </div>
 
-      </div>
-    </div>
-
-    <div class="row">
-      <article class="pinnwand columns small-12 large-10 large-centered helper-margin-top-m">
         <div id="iuk-documemt-infos"
              tal:condition="python: (view.isOwner() or view.isManager())" >
           <div class="document-actions">
@@ -103,22 +98,28 @@
                i18n:attributes="title" >Sperren</a>
 
             <p>
-              <span i18n:translate="">Hinweis</span>
+              <span i18n:translate="" tal:omit-tag="default" >Hinweis</span>
               <a class="toogle" href="#" data-reveal-id="rules" i18n:translate="" >Nutzungsbedingungen</a>
-              <span i18n:translate="">einverstanden.</span>
+              <span i18n:translate="" tal:omit-tag="default" >einverstanden.</span>
             </p>
-          </div>
-
-
-        <div id="rules" class="pinnwand_info reveal-modal xlarge" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
-            <tal:rules tal:define="parent context/getParentNode;
-                                   output parent/text/output"
-                tal:content="structure output">
+            <div id="rules" class="pinnwand_info reveal-modal xlarge"
+                 aria-labelledby="" aria-hidden="true" role="dialog"
+                 style="top: -8em;" data-reveal="data-reveal" >
+              <tal:rules tal:define="parent context/getParentNode;
+                                     output parent/text/output"
+                         tal:content="structure output">
                 Content Body
-            </tal:rules>
-            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+              </tal:rules>
+              <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <article class="pinnwand columns small-12 large-10 large-centered helper-margin-top-m">
+
         <div class="row">
           <div class="large-12 columns">
             <hgroup>
