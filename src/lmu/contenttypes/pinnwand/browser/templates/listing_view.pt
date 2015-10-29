@@ -26,6 +26,13 @@
                  tal:condition="show_border"
                  tal:content="structure provider:plone.contentviews" />
 
+            <div id="rules" class="pinnwand_info reveal-modal" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
+              <tal:rules tal:content="structure context/text/output">
+                Content Body
+              </tal:rules>
+              <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+            </div>
+
           </div>
 
           <a class="toogle button small right" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a>
@@ -33,12 +40,6 @@
             <span tal:replace="context/title">Pinnwand Titel</span> 
             <small tal:content="context/description" tal:condition="context/description">Pinnwand Sub-Title</small>
           </h1>
-           <div id="rules" class="pinnwand_info reveal-modal" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
-            <tal:rules tal:content="structure context/text/output">
-              Content Body
-            </tal:rules>
-             <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-          </div>
           <a class="button small-12"
              tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
              tal:attributes="href add_url;"
@@ -90,7 +91,7 @@
                    tal:content="item/title">Pinnwand Entry Title</a>
               </h2>
               <div class="tileDocumentByLine documentByLine helper-font-serif helper-margin-top-s" 
-                   tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
+                   tal:condition="python: True or site_properties.allowAnonymousViewAbout or not isAnon"
                    tal:define="author python:pas_member.info(item_creator);">
 
                 <a href="#"
