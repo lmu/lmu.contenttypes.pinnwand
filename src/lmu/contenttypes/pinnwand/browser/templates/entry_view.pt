@@ -164,8 +164,14 @@
                                tal:condition="first_image">
                 <a tal:attributes="href string:${first_image/absolute_url}/@@images/image.jpeg;" >
                   <figure  class="Pinnwand-lead-image helper-margin-bottom-m text-left"
-                           tal:define="scales first_image/@@images;" >
-                    <img tal:replace="structure python: scales.tag('image', scale='entry_teaser', direction='down', alt=first_image.description, title=first_image.description)" />
+                           tal:define="scales first_image/@@images;
+                                       thumb python: scales.scale('image', scale='entry_teaser', direction='down');" >
+                    <img tal:attributes="data-caption first_image/description;
+                                         title first_image/description;
+                                         alt first_image/description;
+                                         src thumb/url;
+                                         width thumb/width;
+                                         height thumb/height;" />
                     <figcaption tal:content="first_image/description" tal:condition="first_image/description">Caption</figcaption>
                   </figure>
                 </a>
@@ -208,7 +214,10 @@
               </div>
 
               <div class="helper-margin-top-m" tal:condition="context/pinnwand_entry_vendor_email">
-                <a class="button small-12" href="mailto:#" tal:attributes="href python: 'mailto:' + context.pinnwand_entry_vendor_email" i18n:translate="">E-Mail</a>
+                <a class="button small-12"
+                   href="mailto:#"
+                   tal:attributes="href python: 'mailto:' + context.pinnwand_entry_vendor_email + '?subject=' + context.title.replace(' ','%20') + '&body=' + context.absolute_url();"
+                   i18n:translate="">Nachricht senden</a>
               </div>
 
 
