@@ -165,7 +165,9 @@
                 <a tal:attributes="href string:${first_image/absolute_url}/@@images/image.jpeg;" >
                   <figure  class="Pinnwand-lead-image helper-margin-bottom-m text-left"
                            tal:define="scales first_image/@@images;
-                                       thumb python: scales.scale('image', scale='entry_teaser', direction='down');" >
+                                       thumb python: scales.scale('image', scale='entry_teaser', direction='down');
+                                       style python: 'width: ' + str(thumb.width) + 'px;;' if thumb.width < 680 else None;"
+                           tal:attributes="style style" >
                     <img tal:attributes="data-caption first_image/description;
                                          title first_image/description;
                                          alt first_image/description;
