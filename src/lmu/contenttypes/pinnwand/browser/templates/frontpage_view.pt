@@ -165,10 +165,14 @@
                     show_more python: 0 < int(view.b_size) < int(view.absolute_length());" >
   <div class="row overview-light" tal:condition="show_more" >
     <div class="columns small-12 large-10 large-centered pagination-centered">
-      <a class="button secondary helper-border large-4 small-12"
-         tal:attributes="href url;" >
-        <tal:lang i18n:translate="">weitere Pinnwand-Eintraege</tal:lang> (<tal:lang i18n:translate="">insgesamt</tal:lang> <span tal:replace="view/absolute_length">Anzahl</span>)
-      </a>
+      <div class="row" >
+        <div class="columns small-12 large-4 large-centered" >
+          <a class="button secondary helper-border small-12"
+             tal:attributes="href url;" >
+            <tal:lang i18n:translate="">weitere Pinnwand-Eintraege</tal:lang> <br class="show-for-large-up"/>(<tal:lang i18n:translate="">insgesamt</tal:lang> <span tal:replace="view/absolute_length">Anzahl</span>)
+          </a>
+        </div>
+      </div>
       <tal:pagination tal:condition="nothing">
         <div metal:use-macro="context/batch_macros/macros/navigation" />
       </tal:pagination>
