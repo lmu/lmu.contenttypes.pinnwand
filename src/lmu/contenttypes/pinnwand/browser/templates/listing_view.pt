@@ -76,7 +76,7 @@
                                last python: 'lastTileItem' if islast else '';
                                sklass string:row pinnwand-entry tileItem ${last} visualIEFloatFix">
 
-            <hgroup>
+            <header>
               <div>
                   <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
                   <span tal:content="item/pinnwand_entry_type"
@@ -104,10 +104,11 @@
                    tal:omit-tag="not:author">
                   Bob Dobalina
                 </a> 
-                <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
+                <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
+                      tal:attributes="datetime item_modified;">Date</time>
                 <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
               </div>
-            </hgroup>
+            </header>
 
             <tal:block  tal:condition="item/images" >
               <figure tal:define="images item/images;

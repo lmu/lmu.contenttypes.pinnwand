@@ -122,7 +122,7 @@
 
         <div class="row">
           <div class="large-12 columns">
-            <hgroup>
+            <header>
               <div class="helper-font-italic">
                   <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
                   <span tal:content="context/pinnwand_entry_type"
@@ -146,10 +146,11 @@
                    tal:content="author/name_or_id">
                       Bob Dobalina
                 </a> 
-                <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
+                <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
+                      tal:attributes="datetime item_modified;">Date</time>
                 <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
               </div>
-            </hgroup>
+            </header>
           </div>
         </div>
           

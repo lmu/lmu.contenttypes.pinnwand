@@ -64,7 +64,7 @@
       <div class="columns small-12 medium-6 large-7 more">
         <a class="toogle" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a> / <br class="hide-for-large-up" />
         <a tal:define="url context/absolute_url;
-                       url python: url if not view.author else url + '?author=' + view.author;"
+                       url python: url if not view.author else url + '?author=' + str(view.author);"
            tal:attributes="href url;" >
            <tal:lang i18n:translate="">Alle Pinnwand-Eintraege</tal:lang> (<span tal:replace="view/absolute_length">Anzahl</span>)
         </a>
@@ -99,7 +99,7 @@
                              rclass string: tileItem ${last} visualIEFloatFix"
                  >
 
-          <hgroup class="helper-margin-bottom-m">
+          <header class="helper-margin-bottom-m">
             <div class="helper-margin-bottom-m helper-font-italic">
               <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
               <span tal:content="item/pinnwand_entry_type"
@@ -128,10 +128,11 @@
                  tal:omit-tag="not:author">
                 Bob Dobalina
               </a> 
-              <date tal:content="python: toLocalizedTime(item_modified,long_format=1)">Date</date>
+              <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
+                    tal:attributes="datetime item_modified;">Date</time>
               <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
             </div>
-          </hgroup>
+          </header>
 
           <p tal:content="text">Pinnwand Entry Text</p>
 
@@ -161,7 +162,7 @@
 </tal:results>
 <footer id="pinnwand-footer"
         tal:define="url context/absolute_url;
-                    url python: url if not view.author else url + '?author=' + view.author;
+                    url python: url if not view.author else url + '?author=' + str(view.author);
                     show_more python: 0 < int(view.b_size) < int(view.absolute_length());" >
   <div class="row overview-light" tal:condition="show_more" >
     <div class="columns small-12 large-10 large-centered pagination-centered">
