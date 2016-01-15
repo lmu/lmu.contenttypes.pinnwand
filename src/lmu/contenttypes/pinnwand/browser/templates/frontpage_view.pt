@@ -81,6 +81,15 @@
       </tal:rules>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
+    <tal:null_listing condition="not: batch" >
+      <div class="row helper-margin-bottom-m clearfix">
+        <div class="columns small-12 medium-6 medium-centered end">
+          <p class="alert-box info radius text-center" i18n:translate="">
+            Im Augenblick sind keine Pinnwand-Einträge vorhanden.
+          </p>
+        </div>
+      </div>
+    </tal:null_listing>
     <tal:listing condition="batch">
     <div class="row helper-margin-bottom-m clearfix">
         <tal:block tal:repeat="entry batch">
