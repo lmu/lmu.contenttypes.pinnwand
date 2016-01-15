@@ -50,6 +50,15 @@
         </div>
       </header>
       <tal:results tal:define="batch view/batch">
+      <tal:null_listing condition="not: batch" >
+        <div class="row helper-margin-bottom-m clearfix">
+          <div class="columns small-12 medium-6 medium-centered end">
+            <p class="alert-box info radius text-center" i18n:translate="">
+              Im Augenblick sind keine Pinnwand-Einträge vorhanden.
+            </p>
+          </div>
+        </div>
+      </tal:null_listing>
       <tal:listing condition="batch">
       <div id="pinnwand-main" class="row">
         <div class="columns small-12 large-10 large-centered " >
