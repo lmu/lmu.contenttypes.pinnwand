@@ -43,7 +43,7 @@
           <a class="button small-12"
              tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
              tal:attributes="href add_url;"
-             tal:condition="view/can_add"
+             tal:condition="python: not view.isDBReadOnly() and view.can_add()"
              i18n:translate="">
             Jetzt einen Pinnwand-Beitrag verfassen
           </a>
