@@ -85,7 +85,7 @@
       <div class="row helper-margin-bottom-m clearfix">
         <div class="columns small-12 medium-6 medium-centered end">
           <p class="alert-box secondary radius text-center" i18n:translate="">
-            Im Augenblick sind keine Pinnwand-Einträge vorhanden.
+            Im Augenblick sind keine Pinnwand-Eintraege vorhanden.
           </p>
         </div>
       </div>
@@ -200,7 +200,7 @@
     <div class="columns small-12 large-10 large-centered">
       <p class="alert-box secondary helper-border helper-padding-m helper-margin-bottom-l helper-font-light text-center"
          i18n:translate="">
-        Das Hinzufügen eines Pinnwand-Eintrages ist derzeit aus technischen Gründen nicht möglich.
+        Das Hinzufuegen eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht moeglich.
       </p>
     </div>
   </div>
