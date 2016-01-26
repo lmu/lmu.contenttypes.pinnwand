@@ -45,7 +45,8 @@
 
         <div id="iuk-documemt-infos"
              tal:condition="python: (view.isOwner() or view.isManager())" >
-          <div class="document-actions">
+          <div class="document-actions"
+               tal:condition="not: view/isDBReadOnly">
 
             <a tal:attributes="href string:${context/absolute_url}/report_Pinnwand_entry"
                tal:condition="nothing"
@@ -112,6 +113,11 @@
               </tal:rules>
               <a class="close-reveal-modal" aria-label="Close">&#215;</a>
             </div>
+          </div>
+          <div class="document-actions-readonly alert-box alert"
+               tal:condition="view/isDBReadOnly"
+               i18n:translate="" >
+            Die Bearbeitung eines Pinnwand-Eintrages ist derzeit aus technischen Gründen nicht möglich.
           </div>
         </div>
       </div>

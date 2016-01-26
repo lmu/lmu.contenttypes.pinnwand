@@ -24,6 +24,7 @@ from lmu.policy.base.browser.content import RichTextWidgetConfig
 from lmu.policy.base.browser.content import formHelper
 from lmu.policy.base.browser.content_listing import _AbstractLMUBaseListingView
 from lmu.policy.base.browser.content_listing import _FrontPageIncludeMixin
+from lmu.policy.base.browser.utils import isDBReadOnly as uIsDBReadOnly
 
 from lmu.contenttypes.blog import MESSAGE_FACTORY as _  # XXX move translations
 from lmu.contenttypes.pinnwand.interfaces import IPinnwandFolder
@@ -112,6 +113,9 @@ class PinnwandEntryAddForm(add.DefaultAddForm):
             #    _(u"Item created"), "info success"
             #)
 
+    def isDBReadOnly(self):
+        return uIsDBReadOnly()
+
 
 class PinnwandEntryAddView(add.DefaultAddView):
     form = PinnwandEntryAddForm
@@ -147,6 +151,9 @@ class PinnwandEntryEditForm(edit.DefaultEditForm):
                 button.title = _(u'Preview')
 
         return super(PinnwandEntryEditForm, self).__call__()
+
+    def isDBReadOnly(self):
+        return uIsDBReadOnly()
 
     @button.buttonAndHandler(_(u'Save'), name='save')
     def handleApply(self, action):
