@@ -30,6 +30,9 @@ class IPinnwandEntry(ILMUContent, IImageScaleTraversable):
     """
     form.model("models/pinnwand_entry.xml")
 
+    def isExpired(self):
+        """Test if Pinnwand Entry is expired."""
+
 
 class IPinnwandLayer(IDefaultPloneLayer):
     """ A layer specific to this product.

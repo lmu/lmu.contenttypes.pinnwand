@@ -79,8 +79,7 @@
                                navigation_root_url context/@@plone_portal_state/navigation_root_url;
                                pas_member context/@@pas_member;
                               ">
-          <article class="pinnwand-entry pinnwand-preview tileItem visualIEFloatFix helper-border-top helper-margin-top-m helper-padding-top-m clearfix" 
-                   tal:define="item entry/getObject;
+          <article tal:define="item entry/getObject;
                                item_creator entry/Creator;
                                item_type entry/portal_type;
                                item_modified entry/ModificationDate;
@@ -90,17 +89,29 @@
                                text python:view.strip_text(item);
                                islast repeat/entry/end;
                                last python: 'lastTileItem' if islast else '';
-                               sklass string:row pinnwand-entry tileItem ${last} visualIEFloatFix">
+                               isPrivate python: bool(item_state == 'private');
+                               private_note python: 'private' if isPrivate else '';
+                               isExpired python: item.isExpired();
+                               expired_note python: 'expired' if isExpired else '';
+                               klass string:pinnwand-entry pinnwand-preview ${private_note}${expired_note} tileItem visualIEFloatFix helper-border-top helper-margin-top-m helper-padding-top-m clearfix;
+                               sklass string:row pinnwand-entry tileItem ${last} visualIEFloatFix
+                              "
+                   tal:attributes="class klass;">
 
             <header>
               <div>
-                  <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
-                  <span tal:content="item/pinnwand_entry_type"
-                       tal:define="category python:item.pinnwand_entry_type.lower()"
-                       tal:attributes="class string:${category} pinnwand_type_preview helper-font-italic" 
-                       tal:on-error="string:Suche">
-                    Suche / Biete
-                  </span>
+                <span tal:condition="python: isPrivate or isExpired" class="right" >
+                  <em class="private" i18n:translate="" tal:condition="isPrivate">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
+                  <span tal:condition="python: isPrivate and isExpired" > / </span>
+                  <em class="expired" i18n:translate="" tal:condition="isExpired">Eintrag ist Abgelaufen</em>
+                </span>
+                <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
+                <span tal:content="item/pinnwand_entry_type"
+                     tal:define="category python:item.pinnwand_entry_type.lower()"
+                     tal:attributes="class string:${category} pinnwand_type_preview helper-font-italic" 
+                     tal:on-error="string:Suche">
+                  Suche / Biete
+                </span>
               <h2 class="tileHeadline helper-margin-top-m">
                 <a tal:attributes="href item/absolute_url; 
                                    title item/title;"

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from Products.CMFPlone.interfaces.syndication import ISyndicatable
 
 from Products.statusmessages.interfaces import IStatusMessage
@@ -37,6 +39,9 @@ class PinnwandFolder(Container):
 
 class PinnwandEntry(LMUBaseContent):
     implements(IPinnwandEntry)
+
+    def isExpired(self):
+        return self.expires < datetime.now()
 
 
 class PinnwandReportForm(form.SchemaForm):

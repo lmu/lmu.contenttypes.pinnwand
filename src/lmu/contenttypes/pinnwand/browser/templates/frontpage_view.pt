@@ -99,17 +99,28 @@
                                item_modified entry/ModificationDate;
                                item_url item/getURL|item/absolute_url;
                                item_state entry/review_state;">
-        <article class="pinnwand-entry pinnwand-preview columns small-12 large-4 helper-margin-bottom-m" 
-                 tal:define="text python:view.strip_text(item);
+        <article tal:define="text python:view.strip_text(item);
                              imageTile python: 'imageTileItem' if item.images else '';
                              sklass string:columns small-12 large-10 large-centered ${imageTile} pinnwand-entry;
                              islast repeat/entry/end;
                              last python: 'lastTileItem' if islast else '';
-                             rclass string: tileItem ${last} visualIEFloatFix"
+                             rclass string: tileItem ${last} visualIEFloatFix;
+                             isPrivate python: bool(item_state == 'private');
+                             private_note python: 'private' if isPrivate else '';
+                             isExpired python: item.isExpired();
+                             expired_note python: 'expired' if isExpired else '';
+                             klass string:pinnwand-entry pinnwand-preview ${private_note}${expired_note} columns small-12 large-4 helper-margin-bottom-m;
+                             "
+                 tal:attributes="class klass;"
                  >
 
           <header class="helper-margin-bottom-m">
             <div class="helper-margin-bottom-m helper-font-italic">
+              <span tal:condition="python: isPrivate or isExpired" class="right" >
+                <em class="private" i18n:translate="" tal:condition="isPrivate">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
+                <span tal:condition="python: isPrivate and isExpired" > / </span>
+                <em class="expired" i18n:translate="" tal:condition="isExpired">Eintrag ist Abgelaufen</em>
+              </span>
               <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
               <span tal:content="item/pinnwand_entry_type"
                    tal:define="category python:item.pinnwand_entry_type.lower()"

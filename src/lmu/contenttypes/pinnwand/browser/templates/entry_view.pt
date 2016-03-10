@@ -28,6 +28,10 @@
                              item_modified context/ModificationDate;
                              item_url context/getURL|context/absolute_url;
                              item_state context/@@plone_context_state/workflow_state;
+                             isPrivate python: bool(item_state == 'private');
+                             private_note python: 'private' if isPrivate else '';
+                             isExpired python: context.isExpired();
+                             expired_note python: 'expired' if isExpired else '';
                              show_border context/@@plone/showEditableBorder;
                              show_border python:show_border and not ajax_load">
   <main id="content" class="pinnwand">
@@ -155,6 +159,8 @@
                 <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
                       tal:attributes="datetime item_modified;">Date</time>
                 <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
+                <span tal:condition="python: item_state != 'internally_published' and isExpired" > / </span>
+                <em tal:condition="isExpired" i18n:translate="" class="expired">Eintrag ist Abgelaufen</em>
               </div>
             </header>
           </div>
