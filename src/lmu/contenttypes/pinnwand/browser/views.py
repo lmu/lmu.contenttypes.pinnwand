@@ -54,13 +54,15 @@ class AutoDeleteView(BrowserView):
     def __call__(self):
         alsoProvides(self.request, IDisableCSRFProtection)
         with api.env.adopt_roles(['Manager']):
-
+            context = self.context
             registry = getUtility(IRegistry)
             lmu_settings = registry.forInterface(ILMUSettings)
-            del_delta = timedelta(days=int(lmu_settings.del_timedelta))
+            del_delta = timedelta(days=int(lmu_settings.del_timedelta))  # Default case ('-1')
+            if context.del_timedelta:
+                del_delta = timedelta(days=int(context.del_timedelta))
             del_time = datetime.today() - del_delta
             entries = api.content.find(
-                context=api.portal.get(),
+                context=context,
                 portal_type='Pinnwand Entry'
                 )
             deleted_objs = []

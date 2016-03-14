@@ -9,22 +9,29 @@
 
         <!-- field definitions -->
       <field name="title" type="zope.schema.TextLine">
-      	<title>Title</title>
-      	<description>Name of the Pinnwand Folder</description>
-      	<default>Pinnwand</default>
-      	<required>True</required>
+        <title>Title</title>
+        <description>Name of the Pinnwand Folder</description>
+        <default>Pinnwand</default>
+        <required>True</required>
       </field>
 
       <field name="description" type="zope.schema.TextLine">
-      	<title>Description</title>
-      	<description>Used in item listings and search results.</description>
-      	<required>False</required>
+        <title>Description</title>
+        <description>Used in item listings and search results.</description>
+        <required>False</required>
       </field>
 
       <field name="text" type="plone.app.textfield.RichText">
         <title i18n:translate="lable_text_title">Pinnwand Rules</title>
         <description i18n:translate="lable_text_description">A Description text of Pinnwand Rules which should be showable on every subsequent Element of a Pinnwand Folder</description>
         <required>False</required>
+      </field>
+      <field name="del_timedelta" type="zope.schema.Choice">
+        <title i18n:translate="lable_del_timedelta_title">Time to Delete</title>
+        <description i18n:translate="lable_del_timedelta_description">A time periode after which an expired Pinnwand Entry could be automaticaly deleted</description>
+        <required>False</required>
+        <missing_value/>
+        <source>lmu.policy.base.controlpanel.timedeltas_vocabulary</source>
       </field>
     </schema>
     
