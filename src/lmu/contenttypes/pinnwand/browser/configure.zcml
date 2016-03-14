@@ -26,6 +26,13 @@
         class=".views.EntryView"
         />
 
+    <browser:page
+        name="auto_delete_view"
+        for="lmu.contenttypes.pinnwand.interfaces.IPinnwandFolder"
+        permission="zope2.Public"
+        class=".views.AutoDeleteView"
+        />
+
     <adapter
         for="Products.CMFCore.interfaces.IFolderish
              zope.publisher.interfaces.browser.IDefaultBrowserLayer

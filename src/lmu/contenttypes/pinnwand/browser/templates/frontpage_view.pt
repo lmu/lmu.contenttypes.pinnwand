@@ -91,7 +91,7 @@
       </div>
     </tal:null_listing>
     <tal:listing condition="batch">
-    <div class="row helper-margin-bottom-m clearfix">
+    <div class="row helper-margin-bottom-m clearfix" data-equalizer="pinnwand">
         <tal:block tal:repeat="entry batch">
         <tal:entry tal:define="item entry/getObject;
                                item_creator entry/Creator;
@@ -112,6 +112,7 @@
                              klass string:pinnwand-entry pinnwand-preview ${private_note}${expired_note} columns small-12 large-4 helper-margin-bottom-m;
                              "
                  tal:attributes="class klass;"
+                 data-equalizer-watch="pinnwand"
                  >
 
           <header class="helper-margin-bottom-m">
