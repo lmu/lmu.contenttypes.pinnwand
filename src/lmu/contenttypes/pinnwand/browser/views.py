@@ -57,7 +57,7 @@ class AutoDeleteView(BrowserView):
             context = self.context
             registry = getUtility(IRegistry)
             lmu_settings = registry.forInterface(ILMUSettings)
-            del_delta = timedelta(days=int(lmu_settings.del_timedelta))  # Default case ('-1')
+            del_delta = timedelta(days=int(lmu_settings.del_timedelta))
             if context.del_timedelta:
                 del_delta = timedelta(days=int(context.del_timedelta))
             del_time = datetime.today() - del_delta
