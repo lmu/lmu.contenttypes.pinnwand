@@ -35,13 +35,13 @@
 
           </div>
 
-          <a class="toogle button small right" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a>
+          <a class="helper-border helper-font-light right" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a>
           <h1>
-            <span tal:replace="context/title">Pinnwand Titel</span> 
+            <span tal:replace="context/title">Pinnwand Titel</span>
             <small tal:content="context/description" tal:condition="context/description">Pinnwand Sub-Title</small>
           </h1>
           <tal:add_button tal:condition="view/can_add" >
-          <a class="button small-12 helper-margin-top-m helper-margin-bottom-m"
+          <a class="button small-12 radius helper-margin-top-l helper-margin-bottom-m"
              tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
              tal:attributes="href add_url;"
              tal:condition="not: view/isDBReadOnly"
@@ -93,12 +93,12 @@
                                private_note python: 'private' if isPrivate else '';
                                isExpired python: item.isExpired();
                                expired_note python: 'expired' if isExpired else '';
-                               klass string:pinnwand-entry pinnwand-preview ${private_note}${expired_note} tileItem visualIEFloatFix helper-border-top helper-margin-top-m helper-padding-top-m clearfix;
+                               klass string:pinnwand-entry pinnwand-listing-preview pinnwand-preview ${private_note}${expired_note} tileItem visualIEFloatFix helper-border-top helper-margin-top-m helper-padding-top-m clearfix;
                                sklass string:row pinnwand-entry tileItem ${last} visualIEFloatFix
                               "
                    tal:attributes="class klass;">
 
-            <header>
+            <header class="helper-margin-bottom-l">
               <div>
                 <span tal:condition="python: isPrivate or isExpired" class="right" >
                   <em class="private" i18n:translate="" tal:condition="isPrivate">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
@@ -108,16 +108,16 @@
                 <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
                 <span tal:content="item/pinnwand_entry_type"
                      tal:define="category python:item.pinnwand_entry_type.lower()"
-                     tal:attributes="class string:${category} pinnwand_type_preview helper-font-italic" 
+                     tal:attributes="class string:${category} pinnwand_type_preview helper-font-italic"
                      tal:on-error="string:Suche">
                   Suche / Biete
                 </span>
               <h2 class="tileHeadline helper-margin-top-m">
-                <a tal:attributes="href item/absolute_url; 
+                <a tal:attributes="href item/absolute_url;
                                    title item/title;"
                    tal:content="item/title">Pinnwand Entry Title</a>
               </h2>
-              <div class="tileDocumentByLine documentByLine helper-font-serif helper-margin-top-s" 
+              <div class="tileDocumentByLine documentByLine helper-font-serif helper-margin-top-s"
                    tal:condition="python: True or site_properties.allowAnonymousViewAbout or not isAnon"
                    tal:define="author python:pas_member.info(item_creator);">
 
@@ -130,7 +130,7 @@
                    tal:content="author/name_or_id"
                    tal:omit-tag="not:author">
                   Bob Dobalina
-                </a> 
+                </a>
                 <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
                       tal:attributes="datetime item_modified;">Date</time>
                 <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
@@ -142,7 +142,7 @@
                                   first_image python: images[0];
                                   scales first_image/@@images;"
                       tal:condition="first_image"
-                      class="blog-lead-image tileImage left helper-margin-top-m helper-margin-right-m helper-margin-bottom-m ">
+                      class="pinnwand-lead-image tileImage left helper-margin-right-m helper-margin-bottom-m ">
                 <a href="#"
                    tal:attributes="href item/absolute_url">
                   <img tal:define="thumb python: scales.scale('image', scale='listing_teaser', direction='down');"

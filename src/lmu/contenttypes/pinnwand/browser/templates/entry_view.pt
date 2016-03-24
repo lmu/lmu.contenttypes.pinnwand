@@ -13,7 +13,7 @@
 </tal:comment>
 
 <metal:main fill-slot="content">
-  <metal:content define-macro="content" 
+  <metal:content define-macro="content"
                  tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                              real_object python:context.aq_explicit;
                              isAnon context/@@plone_portal_state/anonymous;
@@ -54,7 +54,7 @@
 
             <a tal:attributes="href string:${context/absolute_url}/report_Pinnwand_entry"
                tal:condition="nothing"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                id="report-button"
                title="Report Pinnwand Entry"
                i18n:attributes="title"
@@ -62,47 +62,47 @@
 
             <a tal:attributes="href string:${context/absolute_url}/edit"
                tal:condition="view/can_edit"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                title="Edit Pinnwand Entry"
                i18n:attributes="title"
                i18n:translate="" >Edit Pinnwand Entry</a>
 
             <a tal:attributes="href string:${context/absolute_url}/delete_confirmation"
                tal:condition="view/can_remove"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                title="Delete Pinnwand Entry"
                i18n:attributes="title"
                i18n:translate="" >Delete Pinnwand Entry</a>
 
             <a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=publish_internally"
                tal:condition="view/can_publish"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                title="Publish"
                i18n:attributes="title"
                i18n:translate="" >Publish</a>
 
             <a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=hide"
                tal:condition="view/can_hide"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                title="Hide"
                i18n:attributes="title"
                i18n:translate="" >Hide</a>
 
             <a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=reject"
                tal:condition="view/can_reject"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                title="Reject"
                i18n:attributes="title"
                i18n:translate="" >Reject</a>
 
             <a tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=banned"
                tal:condition="view/can_lock"
-               class="button link-overlay small"
+               class="button radius link-overlay small"
                title="Report Pinnwand Entry"
                i18n:translate=""
                i18n:attributes="title" >Sperren</a>
 
-            <p>
+            <p class="helper-border-bottom helper-margin-bottom-l">
               <span i18n:translate="" tal:omit-tag="default" >Hinweis</span>
               <a class="toogle" href="#" data-reveal-id="rules" i18n:translate="" >Nutzungsbedingungen</a>
               <span i18n:translate="" tal:omit-tag="default" >einverstanden.</span>
@@ -132,7 +132,7 @@
 
         <div class="row">
           <div class="large-12 columns">
-            <header>
+            <header class="helper-margin-bottom-l">
               <div class="helper-font-italic">
                   <i class="fi-arrow-right" style="font-size: 1.25em; line-height: 1.25em;"></i>
                   <span tal:content="context/pinnwand_entry_type"
@@ -143,7 +143,7 @@
                   </span>
               </div>
               <h1 tal:content="context/title" class="helper-margin-top-m">pinnwand Entry Title</h1>
-              <div class="tileDocumentByLine documentByLine helper-font-serif helper-margin-top-s helper-margin-bottom-m" 
+              <div class="tileDocumentByLine documentByLine helper-font-serif helper-margin-top-s helper-margin-bottom-m"
                    tal:condition="python: True or site_properties.allowAnonymousViewAbout or not isAnon"
                    tal:define="author python:pas_member.info(item_creator);">
 
@@ -155,7 +155,7 @@
                    tal:attributes="href href_url;"
                    tal:content="author/name_or_id">
                       Bob Dobalina
-                </a> 
+                </a>
                 <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
                       tal:attributes="datetime item_modified;">Date</time>
                 <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
@@ -165,7 +165,7 @@
             </header>
           </div>
         </div>
-          
+
         <div class="row">
 
           <div class="columns small-12 medium-8"
@@ -173,7 +173,7 @@
                tal:attributes="class python: files and 'columns small-12 medium-8 end' or 'columns small-12 medium-8'" >
             <div id="pinnwand-images" tal:condition="view/images">
               <tal:first_image tal:define="images view/images;
-                                           first_image python: images[0];" 
+                                           first_image python: images[0];"
                                tal:condition="first_image">
                 <a tal:attributes="href string:${first_image/absolute_url}/@@images/image.jpeg;" >
                   <figure  class="Pinnwand-lead-image helper-margin-bottom-m text-left"
@@ -190,7 +190,8 @@
                 </a>
               </tal:first_image>
               <ul class="clearing-thumbs clearing-feature small-block-grid-3 medium-block-grid-4 large-block-grid-6 helper-border-bottom helper-margin-bottom-l"
-                  tal:condition="view/images" data-clearing >
+                tal:condition="show"
+                tal:define="images view/images; length python: len(images); show python: length > 1" data-clearing >
                 <tal:block tal:repeat="image view/images" >
                   <li class="helper-no-padding-left clearing-featured-img"
                       tal:define="first repeat/image/start;"
@@ -213,19 +214,19 @@
           </div>
           <div class="columns small-12 medium-4" >
 
-            <div class="helper-border helper-margin-bottom-l" 
+            <div class="helper-border helper-margin-bottom-l helper-padding-m"
                  tal:define="vendor context/pinnwand_entry_vendor;
                              vendor_contactinfo context/pinnwand_entry_vendor_contact_infotext;
                              vendor_email context/pinnwand_entry_vendor_email"
                  tal:condition="python: vendor or vendor_contactinfo or vendor_email" >
-              <h2 i18n:translate="">Contact</h2>
+              <h2 class="helper-no-margin-top"><i class="fi-mail helper-font-light"></i> <span tal:omit-tag="default" i18n:translate="" >Contact</span></h2>
               <h3 tal:content="context/pinnwand_entry_vendor" tal:condition="context/pinnwand_entry_vendor">Contact</h3>
-              <div tal:content="context/pinnwand_entry_vendor_contact_infotext" tal:condition="context/pinnwand_entry_vendor_contact_infotext">
+              <p tal:content="context/pinnwand_entry_vendor_contact_infotext" tal:condition="context/pinnwand_entry_vendor_contact_infotext">
                 Freitext
-              </div>
+              </p>
 
               <div class="helper-margin-top-m" tal:condition="context/pinnwand_entry_vendor_email">
-                <a class="button small-12"
+                <a class="button radius small-12"
                    href="mailto:#"
                    tal:attributes="href python: 'mailto:' + context.pinnwand_entry_vendor_email + '?subject=' + context.title.replace(' ','%20') + '&body=' + context.absolute_url();"
                    i18n:translate="">Nachricht senden</a>

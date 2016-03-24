@@ -1,4 +1,4 @@
-<tal:doctype xmlns:tal="http://xml.zope.org/namespaces/tal" 
+<tal:doctype xmlns:tal="http://xml.zope.org/namespaces/tal"
              tal:define="omit view/omit"
              tal:condition="not:omit" >
 <!DOCTYPE html >
@@ -7,7 +7,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="lmu.contenttypes.pinnwand" 
+      i18n:domain="lmu.contenttypes.pinnwand"
       tal:define="omit view/omit"
       tal:omit-tag="omit" >
 
@@ -82,7 +82,7 @@
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
     <tal:null_listing condition="not: batch" >
-      <div class="row helper-margin-bottom-m clearfix">
+      <div class="row helper-margin-bottom-m helper-margin-top-m clearfix">
         <div class="columns small-12 medium-6 medium-centered end">
           <p class="alert-box secondary radius text-center" i18n:translate="">
             Im Augenblick sind keine Pinnwand-Eintraege vorhanden.
@@ -91,7 +91,7 @@
       </div>
     </tal:null_listing>
     <tal:listing condition="batch">
-    <div class="row helper-margin-bottom-m clearfix" data-equalizer="pinnwand">
+    <div class="row helper-margin-bottom-m helper-margin-top-m clearfix" data-equalizer="pinnwand">
         <tal:block tal:repeat="entry batch">
         <tal:entry tal:define="item entry/getObject;
                                item_creator entry/Creator;
@@ -109,7 +109,7 @@
                              private_note python: 'private' if isPrivate else '';
                              isExpired python: item.isExpired();
                              expired_note python: 'expired' if isExpired else '';
-                             klass string:pinnwand-entry pinnwand-preview ${private_note}${expired_note} columns small-12 large-4 helper-margin-bottom-m;
+                             klass string:pinnwand-entry pinnwand-frontpage-preview pinnwand-preview ${private_note}${expired_note} columns small-12 large-4 helper-margin-bottom-m;
                              "
                  tal:attributes="class klass;"
                  data-equalizer-watch="pinnwand"
@@ -132,11 +132,11 @@
             </div>
 
             <h3>
-              <a tal:attributes="href item/absolute_url; 
+              <a tal:attributes="href item/absolute_url;
                                  title item/title;"
                  tal:content="item/title">Pinnwand Entry Title</a>
             </h3>
-            <div class="tileDocumentByLine documentByLine helper-font-serif helper-font-light" 
+            <div class="tileDocumentByLine documentByLine helper-font-serif helper-font-light"
                  tal:condition="python: True or site_properties.allowAnonymousViewAbout or not isAnon"
                  tal:define="author python:pas_member.info(item_creator);">
               <a href="#"
@@ -148,7 +148,7 @@
                  tal:content="author/name_or_id"
                  tal:omit-tag="not:author">
                 Bob Dobalina
-              </a> 
+              </a>
               <time tal:content="python: toLocalizedTime(item_modified,long_format=1)"
                     tal:attributes="datetime item_modified;">Date</time>
               <em tal:condition="python: item_state != 'internally_published'" i18n:translate="" class="private">Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht</em>
@@ -157,12 +157,11 @@
 
           <p tal:content="text">Pinnwand Entry Text</p>
 
-          <!-- TODO: inline-Styles durch Klasse ersetzen -->
           <tal:block  tal:condition="item/images" >
             <figure tal:define="images item/images;
                                 first_image python: images[0];
                                 scales first_image/@@images;"
-                    class="blog-lead-image tileImage left helper-margin-top-m helper-margin-right-m helper-margin-bottom-m ">
+                    class="pinnwand-lead-image tileImage left helper-margin-top-m helper-margin-right-m helper-margin-bottom-m ">
               <a href="#"
                  tal:attributes="href item/absolute_url">
                 <img tal:define="img_elem python: scales.scale('image', scale='listing_teaser', direction='down');"
@@ -174,7 +173,7 @@
               </a>
             </figure>
           </tal:block>
-          
+
         </article>
         </tal:entry>
         </tal:block>
@@ -202,8 +201,8 @@
 
   <tal:add_button tal:condition="python: not view.author and view.can_add()" >
   <div class="row overview-light" tal:condition="not: view/isDBReadOnly">
-    <div class="columns small-12 large-10 large-centered">
-      <a class="button link-overlay small-12"
+    <div class="columns small-12 large-10 large-centered helper-margin-bottom-l">
+      <a class="button link-overlay radius small-12"
          tal:define="add_url string:${context/absolute_url}/++add++Pinnwand Entry;"
          tal:attributes="href add_url;"
          i18n:translate="">
@@ -212,7 +211,7 @@
     </div>
   </div>
   <div class="row overview-light" tal:condition="view/isDBReadOnly">
-    <div class="columns small-12 large-10 large-centered">
+    <div class="columns small-12 large-10 large-centered helper-margin-bottom-l">
       <p class="alert-box secondary helper-border helper-padding-m helper-margin-bottom-l helper-font-light text-center"
          i18n:translate="">
         Das Hinzufuegen eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht moeglich.
