@@ -11,7 +11,7 @@
           Die Bearbeitung eines Pinnwand-Eintrages ist derzeit aus technischen Gründen nicht möglich.
         </div>
         <div class="clearfix">
-            <a class="toogle button radius small right" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a>
+            <a class="helper-border helper-font-light right" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a>
             <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
         </div>
         <div id="rules" class="pinnwand_info reveal-modal xlarge" data-reveal aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;">
