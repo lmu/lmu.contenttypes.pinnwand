@@ -62,7 +62,7 @@
         </h2>
       </div>
       <div class="columns small-12 medium-6 large-7 more">
-        <a class="toogle" href="#" data-reveal-id="rules" i18n:translate="" >Show Pinnwand Rules</a> / <br class="hide-for-large-up" />
+        <a class="toogle" href="#" data-reveal-id="pinnwand-rules" i18n:translate="" >Show Pinnwand Rules</a> / <br class="hide-for-large-up" />
         <a tal:define="url context/absolute_url;
                        url python: url if not view.author else url + '?author=' + str(view.author);"
            tal:attributes="href url;" >
@@ -75,7 +75,7 @@
 <tal:results tal:define="batch view/batch">
 <div id="pinnwand-main" class="row overview-light" >
   <div class="columns small-12 large-10 large-centered overview-column" >
-    <div id="rules" class="blog_info reveal-modal xlarge" aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;" data-reveal="data-reveal" >
+    <div id="pinnwand-rules" class="blog_info reveal-modal xlarge" aria-labelledby="" aria-hidden="true" role="dialog" style="top: -8em;" data-reveal="data-reveal" >
       <tal:rules tal:content="structure context/text/output">
          Content Body
       </tal:rules>
