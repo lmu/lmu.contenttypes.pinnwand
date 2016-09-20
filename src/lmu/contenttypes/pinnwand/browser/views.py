@@ -66,7 +66,7 @@ class AutoDeleteView(BrowserView):
                 portal_type='Pinnwand Entry'
                 )
             deleted_objs = []
-            return_info = ''
+            return_info = u''
             for entry in entries:
                 obj = entry.getObject()
                 if obj.expires < del_time:
@@ -75,16 +75,16 @@ class AutoDeleteView(BrowserView):
                         'url': obj.absolute_url(),
                         'expires_date': obj.expires
                     })
-                    return_info += '* Delete Pinnwand Entry: "{title}" at {url} which has expired on {expires_date}\n'.format(title=obj.title, url= obj.absolute_url(), expires_date=obj.expires.strftime('%d.%m.%Y'))
+                    return_info += u'* Delete Pinnwand Entry: "{title}" at {url} which has expired on {expires_date}\n'.format(title=obj.title, url= obj.absolute_url(), expires_date=obj.expires.strftime('%d.%m.%Y'))
                     log.info(
-                        'Delete Pinnwand Entry "%s" as it has expired on %s',
+                        u'Delete Pinnwand Entry "%s" as it has expired on %s',
                         obj.title, obj.expires.strftime('%d.%m.%Y')
                     )
                     api.content.delete(obj=obj)
             if not deleted_objs:
-                return 'No Pinnwand Entries deleted, no Entry has expired before {date}'.format(date=del_time.strftime('%d.%m.%Y'))
+                return u'No Pinnwand Entries deleted, no Entry has expired before {date}'.format(date=del_time.strftime('%d.%m.%Y'))
             else:
-                return_info = '{num} Pinnwand Entries have been deleted, due to expiring before {date}\n'.format(num=len(deleted_objs), date=del_time.strftime('%d.%m.%Y')) + return_info
+                return_info = u'{num} Pinnwand Entries have been deleted, due to expiring before {date}\n'.format(num=len(deleted_objs), date=del_time.strftime('%d.%m.%Y')) + return_info
             return return_info
 
 
