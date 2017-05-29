@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-10 20:48+0000\n"
+"POT-Creation-Date: 2017-05-29 14:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: manual\n"
 
-#: ./browser/templates/entry_view.pt:236
+#: ./browser/templates/entry_view.pt:237
 msgid "Ablaufdatum:"
 msgstr ""
 
@@ -29,11 +29,11 @@ msgstr ""
 msgid "Alle Pinnwand-Eintraege"
 msgstr ""
 
-#: ./browser/views.py:130
+#: ./browser/views.py:182
 msgid "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:221
+#: ./browser/templates/entry_view.pt:222
 msgid "Contact"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgid "Die Bearbeitung eines Pinnwand-Eintrages ist derzeit aus technischen Grue
 msgstr ""
 
 #: ./browser/templates/entry_view.pt:161
-#: ./browser/templates/frontpage_view.pt:120
+#: ./browser/templates/frontpage_view.pt:121
 #: ./browser/templates/listing_view.pt:104
 msgid "Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht"
 msgstr ""
@@ -66,12 +66,16 @@ msgid "Edit Pinnwand Entry"
 msgstr ""
 
 #: ./browser/templates/entry_view.pt:163
-#: ./browser/templates/frontpage_view.pt:122
+#: ./browser/templates/frontpage_view.pt:123
 #: ./browser/templates/listing_view.pt:106
 msgid "Eintrag ist Abgelaufen"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:241
+#: ./configure.zcml:27
+msgid "Extension profile for LMU Content Types for Pinnwands"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:242
 msgid "Files"
 msgstr ""
 
@@ -79,7 +83,7 @@ msgstr ""
 msgid "Folder for Pinnwand Entries with special views and restrictions"
 msgstr ""
 
-#: ./browser/views.py:79
+#: ./browser/views.py:135
 msgid "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
 msgstr ""
 
@@ -98,16 +102,24 @@ msgstr ""
 msgid "Im Augenblick sind keine Pinnwand-Eintraege vorhanden."
 msgstr ""
 
+#: ./browser/templates/pinnwand_entry_add.pt:39
+msgid "Im zweiten Schritt koennen Sie Bilder und andere Dateien hinzufuegen."
+msgstr ""
+
 #: ./browser/templates/frontpage_view.pt:205
 #: ./browser/templates/listing_view.pt:44
 msgid "Jetzt einen Pinnwand-Eintrag verfassen"
+msgstr ""
+
+#: ./configure.zcml:27
+msgid "LMU Content Types for Pinnwands"
 msgstr ""
 
 #: ./browser/templates/frontpage_view.pt:58
 msgid "Meine Pinnwand-Eintraege -"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:228
+#: ./browser/templates/entry_view.pt:229
 msgid "Nachricht senden"
 msgstr ""
 
@@ -120,7 +132,7 @@ msgid "Name of the Person reporting this issue,
 will be filled by System."
 msgstr ""
 
-#: ./browser/views.py:97
+#: ./browser/views.py:153
 msgid "Next"
 msgstr ""
 
@@ -146,7 +158,7 @@ msgstr ""
 msgid "Please describe why you report this Pinnwand Entry"
 msgstr ""
 
-#: ./browser/views.py:151
+#: ./browser/views.py:203
 msgid "Preview"
 msgstr ""
 
@@ -179,7 +191,7 @@ msgstr ""
 msgid "Reported URL"
 msgstr ""
 
-#: ./browser/views.py:102
+#: ./browser/views.py:157
 msgid "Save"
 msgstr ""
 
@@ -264,4 +276,3 @@ msgstr ""
 #: ./browser/templates/frontpage_view.pt:194
 msgid "weitere Pinnwand-Eintraege"
 msgstr ""
-

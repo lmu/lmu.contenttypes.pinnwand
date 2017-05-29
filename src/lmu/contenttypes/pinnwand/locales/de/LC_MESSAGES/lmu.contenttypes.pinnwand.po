@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/entry_view.pt:236
+#: ./browser/templates/entry_view.pt:237
 msgid "Ablaufdatum:"
 msgstr "Ablaufdatum:"
 
@@ -26,11 +26,11 @@ msgstr "Pinnwand-Eintrag verfassen"
 msgid "Alle Pinnwand-Eintraege"
 msgstr "Alle Pinnwand-Einträge"
 
-#: ./browser/views.py:130
+#: ./browser/views.py:182
 msgid "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 msgstr "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 
-#: ./browser/templates/entry_view.pt:221
+#: ./browser/templates/entry_view.pt:222
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -53,7 +53,7 @@ msgid "Die Bearbeitung eines Pinnwand-Eintrages ist derzeit aus technischen Grue
 msgstr "Die Bearbeitung eines Pinnwand-Eintrages ist derzeit aus technischen Gründen nicht möglich."
 
 #: ./browser/templates/entry_view.pt:161
-#: ./browser/templates/frontpage_view.pt:120
+#: ./browser/templates/frontpage_view.pt:121
 #: ./browser/templates/listing_view.pt:104
 msgid "Dieser Pinnwand-Eintrag ist noch nicht veroeffentlicht"
 msgstr "Dieser Pinnwand-Eintrag ist noch nicht veröffentlich"
@@ -63,12 +63,16 @@ msgid "Edit Pinnwand Entry"
 msgstr "Bearbeite Pinnwandeintrag"
 
 #: ./browser/templates/entry_view.pt:163
-#: ./browser/templates/frontpage_view.pt:122
+#: ./browser/templates/frontpage_view.pt:123
 #: ./browser/templates/listing_view.pt:106
 msgid "Eintrag ist Abgelaufen"
 msgstr "Eintrag ist Abgelaufen"
 
-#: ./browser/templates/entry_view.pt:241
+#: ./configure.zcml:27
+msgid "Extension profile for LMU Content Types for Pinnwands"
+msgstr ""
+
+#: ./browser/templates/entry_view.pt:242
 msgid "Files"
 msgstr "Dateien"
 
@@ -76,7 +80,7 @@ msgstr "Dateien"
 msgid "Folder for Pinnwand Entries with special views and restrictions"
 msgstr "Ordner für Pinnwand-Einträge, mit einer speziellen Ansicht und Einschränkungen"
 
-#: ./browser/views.py:79
+#: ./browser/views.py:135
 msgid "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
 msgstr "Geben Sie zunächst die Kategorie, den Titel und Text Ihres Pinnwand-Eintrags an und klicken Sie auf \"Weiter\". Danach können Sie Bilder und andere Dateien hinzufügen."
 
@@ -95,16 +99,24 @@ msgstr "Mit dem Veröffentlichen eines Pinnwand-Eintrags erkläre ich mich mit d
 msgid "Im Augenblick sind keine Pinnwand-Eintraege vorhanden."
 msgstr "Im Augenblick sind keine Pinnwand-Einträge vorhanden."
 
+#: ./browser/templates/pinnwand_entry_add.pt:39
+msgid "Im zweiten Schritt koennen Sie Bilder und andere Dateien hinzufuegen."
+msgstr "Im zweiten Schritt können Sie Bilder und andere Dateien hinzufügen."
+
 #: ./browser/templates/frontpage_view.pt:205
 #: ./browser/templates/listing_view.pt:44
 msgid "Jetzt einen Pinnwand-Eintrag verfassen"
 msgstr "Jetzt einen Pinnwand-Eintrag verfassen"
 
+#: ./configure.zcml:27
+msgid "LMU Content Types for Pinnwands"
+msgstr "LMU Content Type für eine Pinnwand"
+
 #: ./browser/templates/frontpage_view.pt:58
 msgid "Meine Pinnwand-Eintraege -"
 msgstr "Meine Pinnwand-Einträge -"
 
-#: ./browser/templates/entry_view.pt:228
+#: ./browser/templates/entry_view.pt:229
 msgid "Nachricht senden"
 msgstr "Nachricht senden"
 
@@ -112,7 +124,7 @@ msgstr "Nachricht senden"
 msgid "Name of Reporter"
 msgstr "Name des Meldenden"
 
-#: ./browser/views.py:97
+#: ./browser/views.py:153
 msgid "Next"
 msgstr "Weiter"
 
@@ -138,7 +150,7 @@ msgstr "Pinnwand"
 msgid "Please describe why you report this Pinnwand Entry"
 msgstr "Bitte Beschreiben Sie, warum Sie diesen Pinnwand-Eintrag melden wollen."
 
-#: ./browser/views.py:151
+#: ./browser/views.py:203
 msgid "Preview"
 msgstr "Vorschau"
 
@@ -171,7 +183,7 @@ msgstr "Melden Sie einen Pinnwand-Eintrag, der gegen die Pinnwand-Regeln verstö
 msgid "Reported URL"
 msgstr "Gemeldetet URL"
 
-#: ./browser/views.py:102
+#: ./browser/views.py:157
 msgid "Save"
 msgstr "Speichern"
 
@@ -258,4 +270,3 @@ msgstr "E-Mail"
 #: ./browser/templates/frontpage_view.pt:194
 msgid "weitere Pinnwand-Eintraege"
 msgstr "weitere Pinnwand-Einträge"
-
