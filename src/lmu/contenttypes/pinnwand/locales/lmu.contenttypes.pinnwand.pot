@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-05-29 14:15+0000\n"
+"POT-Creation-Date: 2017-09-01 12:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: manual\n"
 
-#: ./browser/templates/entry_view.pt:237
+#: ./browser/templates/entry_view.pt:249
 msgid "Ablaufdatum:"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:222
+#: ./browser/templates/entry_view.pt:234
 msgid "Contact"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Das Bearbeiten eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht moeglich."
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:215
+#: ./browser/templates/frontpage_view.pt:225
 #: ./browser/templates/listing_view.pt:51
 #: ./browser/templates/pinnwand_entry_add.pt:20
 msgid "Das Hinzufuegen eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht moeglich."
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Extension profile for LMU Content Types for Pinnwands"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:242
+#: ./browser/templates/entry_view.pt:254
 msgid "Files"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Im zweiten Schritt koennen Sie Bilder und andere Dateien hinzufuegen."
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:205
+#: ./browser/templates/frontpage_view.pt:215
 #: ./browser/templates/listing_view.pt:44
 msgid "Jetzt einen Pinnwand-Eintrag verfassen"
 msgstr ""
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Meine Pinnwand-Eintraege -"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:229
+#: ./browser/templates/entry_view.pt:241
 msgid "Nachricht senden"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "help_expiration_date"
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:194
+#: ./browser/templates/frontpage_view.pt:204
 msgid "insgesamt"
 msgstr ""
 
@@ -273,6 +273,6 @@ msgstr ""
 msgid "pinnwannd_entry_vendoremail_title"
 msgstr ""
 
-#: ./browser/templates/frontpage_view.pt:194
+#: ./browser/templates/frontpage_view.pt:204
 msgid "weitere Pinnwand-Eintraege"
 msgstr ""

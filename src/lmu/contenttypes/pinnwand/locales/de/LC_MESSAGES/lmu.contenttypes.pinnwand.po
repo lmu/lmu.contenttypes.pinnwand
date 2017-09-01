@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/templates/entry_view.pt:237
+#: ./browser/templates/entry_view.pt:249
 msgid "Ablaufdatum:"
 msgstr "Ablaufdatum:"
 
@@ -30,7 +30,7 @@ msgstr "Alle Pinnwand-Einträge"
 msgid "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 msgstr "Bearbeiten Sie Ihren Pinnwand-Eintrag. Klicken Sie anschließend auf \"Vorschau\", um die Eingaben zu überprüfen und den Pinnwand-Eintrag zu veröffentlichen."
 
-#: ./browser/templates/entry_view.pt:222
+#: ./browser/templates/entry_view.pt:234
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -38,7 +38,7 @@ msgstr "Kontakt"
 msgid "Das Bearbeiten eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht moeglich."
 msgstr "Das Bearbeiten eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht möglich."
 
-#: ./browser/templates/frontpage_view.pt:215
+#: ./browser/templates/frontpage_view.pt:225
 #: ./browser/templates/listing_view.pt:51
 #: ./browser/templates/pinnwand_entry_add.pt:20
 msgid "Das Hinzufuegen eines Pinnwand-Eintrages ist derzeit aus technischen Gruenden nicht moeglich."
@@ -72,7 +72,7 @@ msgstr "Eintrag ist Abgelaufen"
 msgid "Extension profile for LMU Content Types for Pinnwands"
 msgstr ""
 
-#: ./browser/templates/entry_view.pt:242
+#: ./browser/templates/entry_view.pt:254
 msgid "Files"
 msgstr "Dateien"
 
@@ -103,7 +103,7 @@ msgstr "Im Augenblick sind keine Pinnwand-Einträge vorhanden."
 msgid "Im zweiten Schritt koennen Sie Bilder und andere Dateien hinzufuegen."
 msgstr "Im zweiten Schritt können Sie Bilder und andere Dateien hinzufügen."
 
-#: ./browser/templates/frontpage_view.pt:205
+#: ./browser/templates/frontpage_view.pt:215
 #: ./browser/templates/listing_view.pt:44
 msgid "Jetzt einen Pinnwand-Eintrag verfassen"
 msgstr "Jetzt einen Pinnwand-Eintrag verfassen"
@@ -116,7 +116,7 @@ msgstr "LMU Content Type für eine Pinnwand"
 msgid "Meine Pinnwand-Eintraege -"
 msgstr "Meine Pinnwand-Einträge -"
 
-#: ./browser/templates/entry_view.pt:229
+#: ./browser/templates/entry_view.pt:241
 msgid "Nachricht senden"
 msgstr "Nachricht senden"
 
@@ -216,7 +216,7 @@ msgstr "einverstanden."
 msgid "help_expiration_date"
 msgstr "Das Datum, an dem der Pinnwand-Eintrag abläuft."
 
-#: ./browser/templates/frontpage_view.pt:194
+#: ./browser/templates/frontpage_view.pt:204
 msgid "insgesamt"
 msgstr "insgesamt"
 
@@ -267,6 +267,6 @@ msgstr "Hier können Sie eine E-Mail-Adresse eingeben, unter der Sie erreicht we
 msgid "pinnwannd_entry_vendoremail_title"
 msgstr "E-Mail"
 
-#: ./browser/templates/frontpage_view.pt:194
+#: ./browser/templates/frontpage_view.pt:204
 msgid "weitere Pinnwand-Eintraege"
 msgstr "weitere Pinnwand-Einträge"
